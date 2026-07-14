@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Freya's Blog</title>
+  <subtitle>CTF、Web 安全与技术实践笔记</subtitle>
+  <link href="https://freya-we.github.io/" rel="alternate" type="text/html"/>
+  <link href="https://freya-we.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://freya-we.github.io/</id>
+  <updated>2026-07-14T15:02:59.171Z</updated>
+  <language>zh_CN</language>
+  <entry>
+    <title>First CTF Note</title>
+    <link href="https://freya-we.github.io/2026/02/07/first-ctf-note/" rel="alternate" type="text/html"/>
+    <id>https://freya-we.github.io/2026/02/07/first-ctf-note/</id>
+    <published>2026-02-07T00:00:00.000Z</published>
+    <updated>2026-02-07T00:00:00.000Z</updated>
+    <summary>This is a sample note. Replace it with a real CTF writeup when you are ready.</summary>
+    <content type="html"><![CDATA[<p>This is a sample note. Replace it with a real CTF writeup when you are ready.</p>
+<h2>Summary</h2>
+<ul>
+<li><strong>Challenge:</strong></li>
+<li><strong>Category:</strong></li>
+<li><strong>Key idea:</strong></li>
+<li><strong>Result:</strong></li>
+</ul>
+<h2>Notes</h2>
+<p>在这里继续记录你的解题过程、关键代码和复盘结论。</p>
+]]></content>
+    <author>
+      <name>Freya</name>
+    </author>
+    <category term="Notes"></category>
+  </entry>
+</feed>

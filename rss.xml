@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Freya&apos;s Blog</title><description>CTF、Web 安全与技术实践笔记</description><link>https://freya-we.github.io/</link><language>zh_CN</language><item><title>First CTF Note</title><link>https://freya-we.github.io/2026/02/07/first-ctf-note/</link><guid isPermaLink="true">https://freya-we.github.io/2026/02/07/first-ctf-note/</guid><description>This is a sample note. Replace it with a real CTF writeup when you are ready.</description><pubDate>Sat, 07 Feb 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a sample note. Replace it with a real CTF writeup when you are ready.&lt;/p&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Challenge:&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Category:&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key idea:&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+&lt;p&gt;在这里继续记录你的解题过程、关键代码和复盘结论。&lt;/p&gt;
+</content:encoded></item></channel></rss>
