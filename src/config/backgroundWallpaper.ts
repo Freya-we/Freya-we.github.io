@@ -3,8 +3,8 @@ import type { FullscreenWallpaperConfig } from "../types/config";
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	enable: true,
 	src: {
-		desktop: "/assets/freya/banner.jpg",
-		mobile: "/assets/freya/banner.jpg",
+		desktop: "/assets/freya/background.jpg",
+		mobile: "/assets/freya/background.jpg",
 	},
 	position: "center",
 	carousel: {
