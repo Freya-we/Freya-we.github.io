@@ -47,7 +47,7 @@ export const friendsData: FriendItem[] = [
 	},
 	{
 		id: 5,
-		title: "实验室网安组佬",
+		title: "叮铃哐啷--实验室网安组佬",
 		imgurl: "https://github.com/dev-usernamehao.png?size=200",
 		desc: "网络安全实验室站点",
 		siteurl: "https://dev-usernamehao.github.io/",
@@ -55,8 +55,8 @@ export const friendsData: FriendItem[] = [
 	},
 	{
 		id: 6,
-		title: "开发佬",
-		imgurl: "https://ui-avatars.com/api/?name=开发佬&background=4f46e5&color=fff&size=200",
+		title: "Allen",
+		imgurl: "/assets/friends/avatar.jpg",
 		desc: "开发相关站点",
 		siteurl: "http://47.105.98.148:4321/",
 		tags: ["开发"],
