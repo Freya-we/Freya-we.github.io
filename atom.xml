@@ -5,7 +5,7 @@
   <link href="https://freya-we.github.io/" rel="alternate" type="text/html"/>
   <link href="https://freya-we.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://freya-we.github.io/</id>
-  <updated>2026-08-04T02:33:49.385Z</updated>
+  <updated>2026-08-04T03:48:43.823Z</updated>
   <language>zh_CN</language>
   <entry>
     <title>CTF Web 文件上传笔记</title>
@@ -636,6 +636,280 @@ echo $name;
       <name>Freya</name>
     </author>
     <category term="Web安全"></category>
+  </entry>
+  <entry>
+    <title>Git 基础操作笔记</title>
+    <link href="https://freya-we.github.io/posts/git-notes/" rel="alternate" type="text/html"/>
+    <id>https://freya-we.github.io/posts/git-notes/</id>
+    <published>2026-08-04T00:00:00.000Z</published>
+    <updated>2026-08-04T00:00:00.000Z</updated>
+    <summary>整理 Git 的版本控制概念、本地仓库常用命令、分支操作和远程仓库协作流程。</summary>
+    <content type="html"><![CDATA[<blockquote>
+<p>这篇笔记主要整理 Git 的基础概念、本地仓库操作、分支合并和 GitHub 远程仓库协作流程。</p>
+</blockquote>
+<h2>一、Git 概述</h2>
+<h3>1. 版本控制系统</h3>
+<ul>
+<li><strong>集中式版本控制工具</strong>：单一集中的服务器保存所有文件的修订版本</li>
+<li><strong>分布式版本控制工具</strong>：客户端提取最新版本+完整镜像代码仓库
+Git 是分布式版本控制工具。</li>
+</ul>
+<h3>2. Git 工作机制</h3>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260629181801.png" alt="Git 笔记截图" />
+工作区：代码在磁盘中存放的目录。</p>
+<h3>3. Git 和代码托管中心</h3>
+<p>代码托管中心是基于网络服务器的远程代码仓库，简单称为<strong>远程库</strong></p>
+<ul>
+<li><strong>局域网</strong>：GitLab</li>
+<li><strong>互联网</strong>：GitHub，Gitee</li>
+</ul>
+<h2>二、Git 常用命令</h2>
+<table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git config --global user.name 用户名</td>
+<td>设置用户签名</td>
+</tr>
+<tr>
+<td>git config --global user.email 邮箱</td>
+<td>设置用户签名</td>
+</tr>
+<tr>
+<td><strong>git init</strong></td>
+<td><strong>初始化本地库</strong></td>
+</tr>
+<tr>
+<td><strong>git status</strong></td>
+<td><strong>查看本地库状态</strong></td>
+</tr>
+<tr>
+<td><strong>git add 文件名</strong></td>
+<td><strong>添加到暂存区</strong></td>
+</tr>
+<tr>
+<td><strong>git commit -m"日志信息" 文件名</strong></td>
+<td><strong>提交到本地库</strong></td>
+</tr>
+<tr>
+<td><strong>git reflog</strong></td>
+<td><strong>查看历史记录</strong></td>
+</tr>
+<tr>
+<td><strong>git reset --hard 版本号</strong></td>
+<td><strong>版本穿梭</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>1. 设置用户签名</h3>
+<h4>1）基本语法</h4>
+<pre><code>git config --global user.name 用户名
+
+git config --global user.email 邮箱
+</code></pre>
+<h4>2）案例演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260629190354.png" alt="Git 笔记截图" />
+<img src="https://freya-we.github.io/assets/posts/git-notes/git-20260629190421.png" alt="Git 笔记截图" /></p>
+<p>签名的作用是区分不同操作者身份，以此确定本次提交是谁做的
+<strong>注意</strong>：这里设置的用户签名与登录 GitHub 的账号无关。</p>
+<h3>2. 初始化本地库</h3>
+<h4>1）基本语法</h4>
+<pre><code>git init
+</code></pre>
+<h4>2）演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260629203131.png" alt="Git 笔记截图" /></p>
+<p><strong>注意</strong>：以下演示使用 Linux 命令。</p>
+<h3>3. 查看本地库状态</h3>
+<h4>1）基本语法</h4>
+<pre><code>git status
+</code></pre>
+<h4>2）演示</h4>
+<h5>初次看</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260629204447.png" alt="Git 笔记截图" /></p>
+<p>解释</p>
+<pre><code>On branch master
+当前分支
+No commits yet
+没有提交过的
+nothing to commit (create/copy files and use "git add" to track)
+没有需要提交的
+</code></pre>
+<p>新建文件</p>
+<pre><code>vim hello.txt
+i:进入编辑文件
+Esc yy 16p
+shift : esc+:wq
+</code></pre>
+<h5>新建文件看</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630100507.png" alt="Git 笔记截图" /></p>
+<h5>添加到暂存区后</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630115243.png" alt="Git 笔记截图" /></p>
+<h3>4. 添加暂存区</h3>
+<h4>1）基本语法</h4>
+<pre><code>git add 文件名
+</code></pre>
+<h4>2）演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630101338.png" alt="Git 笔记截图" /></p>
+<h3>5. 提交本地库</h3>
+<h4>1）基本语法</h4>
+<pre><code>git commit -m "日志信息" 文件名
+</code></pre>
+<h4>2）演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630102544.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630102941.png" alt="Git 笔记截图" /></p>
+<h3>6. 修改文件</h3>
+<h4>1）基本语法</h4>
+<pre><code>vim hello.txt
+esc退出编辑模式，:w写入 :q退出 :wq 写入又退出
+
+</code></pre>
+<h4>2）演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630103627.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630104626.png" alt="Git 笔记截图" /></p>
+<h3>7. 历史版本</h3>
+<h4>1）基本语法</h4>
+<pre><code>git reflog 查看版本信息
+git log 查看版本详细信息
+git reset --hard 版本号   穿越版本
+</code></pre>
+<h4>2）演示</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630110946.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630111432.png" alt="Git 笔记截图" /></p>
+<h2>三、Git 分支操作</h2>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630112033.png" alt="Git 笔记截图" /></p>
+<h3>3.1 什么是分支</h3>
+<p>每个任务的单独分支，程序员可以把自己的工作从开发主线上分离开来，开发自己分支的同时不会影响主线分支的运行</p>
+<h3>3.2 分支的好处</h3>
+<p>同时并行推进多个功能开发，提高开发效率
+某一个分支开发失败不会影响其他分支</p>
+<h3>3.3 分支的操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch 分支名</td>
+<td>创建分支</td>
+</tr>
+<tr>
+<td>git branch -v</td>
+<td>查看分支</td>
+</tr>
+<tr>
+<td>git checkout 分支名</td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>git merge 分支名</td>
+<td>把指定的分支合并到当前分支上</td>
+</tr>
+</tbody>
+</table>
+<h4>1.查看分支</h4>
+<h5>1）基本语法</h5>
+<pre><code>git branch -v
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630172105.png" alt="Git 笔记截图" /></p>
+<h4>2.创建分支</h4>
+<h5>1）基本语法</h5>
+<pre><code>git branch 分支名
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630174711.png" alt="Git 笔记截图" /></p>
+<h4>3.切换分支</h4>
+<h5>1）基本语法</h5>
+<pre><code>git checkout hot-fix
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630180459.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630182332.png" alt="Git 笔记截图" /></p>
+<h4>4.合并分支</h4>
+<h5>1）基本语法</h5>
+<pre><code>git merge 分支名
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630220918.png" alt="Git 笔记截图" /></p>
+<h4>5.合并分支（冲突分支）</h4>
+<p>两个分支在同一个文件的“同一行”或“相邻行”（最常见）有两套完全不同的修改</p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630224031.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630224607.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630225009.png" alt="Git 笔记截图" /></p>
+<h2>四、Git 团队协作机制</h2>
+<h4>4.1 团队内协作</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630225604.png" alt="Git 笔记截图" /></p>
+<h4>4.2 跨团队协作</h4>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260630225826.png" alt="Git 笔记截图" /></p>
+<h2>五、GitHub 操作</h2>
+<h3>5.1 创建远程仓库</h3>
+<h3>5.2 远程仓库操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git remote -v</td>
+<td>查看当前所有远程地址别名</td>
+</tr>
+<tr>
+<td>git remote add 别名 远程地址</td>
+<td>起别名</td>
+</tr>
+<tr>
+<td>git push 别名 分支</td>
+<td>推送本地分支内容到远程仓库</td>
+</tr>
+<tr>
+<td>git clone 远程地址</td>
+<td>将远程仓库的内容克隆到本地</td>
+</tr>
+<tr>
+<td>git pull 远程库地址别名 远程分支名</td>
+<td>将远程仓库对于分支最新内容拉下来后与当前本地分支直接合并</td>
+</tr>
+</tbody>
+</table>
+<h4>5.2.1 创建远程仓库别名</h4>
+<h5>1）基本语法</h5>
+<pre><code>git remote -v
+git remote add 别名 远程地址
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260701104304.png" alt="Git 笔记截图" /></p>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260701104149.png" alt="Git 笔记截图" /></p>
+<h4>5.2.2 推送本地分支到远程仓库</h4>
+<h5>1）基本语法</h5>
+<pre><code>git push 别名 分支
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260701110628.png" alt="Git 笔记截图" /></p>
+<h4>5.2.3 克隆远程仓库到本地</h4>
+<h5>1）基本语法</h5>
+<pre><code>git clone 远程地址
+</code></pre>
+<h5>2）演示</h5>
+<p><img src="https://freya-we.github.io/assets/posts/git-notes/git-20260701111534.png" alt="Git 笔记截图" />
+clone 会做 1.拉取代码    2.初始化本地仓库   3.创建别名</p>
+<h4>5.2.4 邀请加入团队</h4>
+<h4>5.2.5 团队外协作</h4>
+]]></content>
+    <author>
+      <name>Freya</name>
+    </author>
+    <category term="开发工具"></category>
   </entry>
   <entry>
     <title>First CTF Note</title>
