@@ -5,7 +5,7 @@
   <link href="https://freya-we.github.io/" rel="alternate" type="text/html"/>
   <link href="https://freya-we.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://freya-we.github.io/</id>
-  <updated>2026-08-04T05:22:56.956Z</updated>
+  <updated>2026-08-05T02:58:43.264Z</updated>
   <language>zh_CN</language>
   <entry>
     <title>CTF Web 文件上传笔记</title>
@@ -910,28 +910,5 @@ clone 会做 1.拉取代码    2.初始化本地仓库   3.创建别名</p>
       <name>Freya</name>
     </author>
     <category term="开发工具"></category>
-  </entry>
-  <entry>
-    <title>First CTF Note</title>
-    <link href="https://freya-we.github.io/2026/02/07/first-ctf-note/" rel="alternate" type="text/html"/>
-    <id>https://freya-we.github.io/2026/02/07/first-ctf-note/</id>
-    <published>2026-02-07T00:00:00.000Z</published>
-    <updated>2026-02-07T00:00:00.000Z</updated>
-    <summary>This is a sample note. Replace it with a real CTF writeup when you are ready.</summary>
-    <content type="html"><![CDATA[<p>This is a sample note. Replace it with a real CTF writeup when you are ready.</p>
-<h2>Summary</h2>
-<ul>
-<li><strong>Challenge:</strong></li>
-<li><strong>Category:</strong></li>
-<li><strong>Key idea:</strong></li>
-<li><strong>Result:</strong></li>
-</ul>
-<h2>Notes</h2>
-<p>在这里继续记录你的解题过程、关键代码和复盘结论。</p>
-]]></content>
-    <author>
-      <name>Freya</name>
-    </author>
-    <category term="Notes"></category>
   </entry>
 </feed>
