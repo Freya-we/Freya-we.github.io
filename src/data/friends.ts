@@ -61,6 +61,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "http://47.105.98.148:4321/",
 		tags: ["开发"],
 	},
+	{
+		id: 7,
+		title: "玫幽倩",
+		imgurl: "https://mei-you-qian.github.io/img/fufu.png",
+		desc: "愿我们都能越走越远",
+		siteurl: "https://mei-you-qian.github.io/",
+		tags: ["CTF", "安全", "博客"],
+	},
 ];
 
 // 获取所有友情链接数据
